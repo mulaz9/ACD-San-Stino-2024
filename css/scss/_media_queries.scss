@@ -1,0 +1,53 @@
+@mixin media_Mobile() {
+  @media (max-width: 1023px) {
+    @content;
+  }
+}
+
+@mixin media_Phone() {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin media_ExcludePhone() {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin media_Portrait() {
+  @media (min-width: 768px) and (max-width: 1023px) {
+    @content;
+  }
+}
+
+@mixin media_Landscape() {
+  @media (min-width: 1024px) and (max-width: 1279px) {
+    @content;
+  }
+}
+
+@mixin media_AllDesktop() {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin media_DesktopLarge() {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin media_DesktopLarger() {
+  @media (min-width: 1440px) {
+    @content;
+  }
+}
+
+@mixin media_DesktopXXXL() {
+  @media (min-width: 1920px) {
+    @content;
+  }
+}

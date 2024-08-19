@@ -1,0 +1,53 @@
+#footer {
+  background: $hoverColor;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  color: $light-color;
+
+  a {
+    @include linkStyle($primary-color);
+
+    &:hover {
+      scale: 1.2;
+      transform-origin: center;
+    }
+  }
+
+  .social {
+    width: 82px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .privacy-policy {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 0.6rem;
+
+    .policy-title {
+      margin: 0 10px;
+    }
+  }
+
+  .preferenze-cookie {
+    margin: 10px;
+    font-size: 0.6rem;
+  }
+
+  .last--row {
+    .developer {
+      i {
+        padding: 0 0.5rem;
+      }
+    }
+
+    text-align: center;
+    font-size: 0.8rem;
+    color: $primary-color;
+  }
+}

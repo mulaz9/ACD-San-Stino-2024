@@ -1,0 +1,90 @@
+$firstFont: "Montserrat", sans-serif;
+$secondFont: "Poppins", serif;
+
+$fontSize: 16px;
+$fontSizeMedium: 18px;
+$fontSizeSubtitle: 20px;
+$fontSizeLarge: 24px;
+$fontSizeTitle: 32px;
+$fontSizeXL: 48px;
+$fontSizeXXL: 64px;
+$fontSizeHuge: 80px;
+
+$light-color: white;
+$medium-color: grey;
+$dark-color: black;
+$primary-color: #52abe3;
+$secondary-color: #c9c8c8;
+$hoverColor: #333333;
+$fontColor: #333333;
+$titleColor: #000000;
+$titleSpacing: 0.03rem;
+
+$sectionWidth: calc(100% - 8rem);
+
+$sliderHeight: calc(100vh - 130px);
+$headerHeight: 100px;
+
+$shadow: $primary-color 4px 4px;
+$newsImgShadow: 10px 20px 15px #333;
+
+@mixin container() {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 2rem;
+  padding-left: 2rem;
+
+  @include media_Phone() {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  @include media_DesktopLarge() {
+    padding-left: 4rem;
+    padding-right: 4rem;
+    max-width: $sectionWidth;
+  }
+}
+
+@mixin ul_reset() {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  li {
+    a {
+      text-decoration: none;
+    }
+  }
+}
+
+@mixin objectfit_image() {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+@mixin linkStyle($color: false) {
+  @if ($color) {
+    color: $color;
+  } @else {
+    color: $fontColor;
+  }
+  text-decoration: none;
+  transition: 0.3s all ease;
+}
+
+@mixin overlay($opacity: 0.3) {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 40;
+  background: transparent linear-gradient(180deg, #000 0%, #0000 100%) 0% 0%
+    no-repeat padding-box;
+  opacity: $opacity;
+}

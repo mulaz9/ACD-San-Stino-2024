@@ -1,0 +1,136 @@
+#header {
+  // background: linear-gradient($light-color 50%, $primary-color);
+  height: $headerHeight;
+  background-color: $primary-color;
+
+  .header_wrapper {
+    display: flex;
+    height: 100%;
+    width: fit-content;
+    gap: 80px;
+    margin: 0 auto;
+
+    .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      width: 100%;
+
+      img {
+        @include objectfit_image();
+        height: 70px;
+      }
+    }
+
+    .highlight_menu {
+      width: calc(100% - 50px);
+
+      ul.menu {
+        height: 100%;
+        display: flex;
+        white-space: nowrap;
+        align-items: center;
+        gap: 48px;
+
+        > li {
+          position: relative;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          a {
+            font-size: $fontSizeMedium;
+            text-transform: uppercase;
+            font-weight: bold;
+            color: $titleColor;
+          }
+
+          ul.sub-menu {
+            background-color: $light-color;
+            position: absolute;
+            text-align: left;
+            max-height: 0;
+            opacity: 0;
+            visibility: hidden;
+            top: 90%;
+            left: 50%;
+            min-width: 200px;
+            transform: translateX(-50%);
+            transition: 0.3s all ease;
+            box-shadow: 0 0 5px $medium-color;
+
+            li {
+              transition: 0.3s all ease;
+
+              &:first-child {
+                &:after {
+                  content: "";
+                  width: 100%;
+                  height: 12px;
+                  background-color: transparent;
+                  position: absolute;
+                  top: -12px;
+                  left: 0;
+                }
+
+                &:before {
+                  content: "";
+                  width: 0;
+                  height: 0;
+                  border-left: 10px solid transparent;
+                  border-right: 10px solid transparent;
+                  border-bottom: 12px solid $light-color;
+                  position: absolute;
+                  top: -12px;
+                  left: calc(50% - 10px);
+                  transition: 0.3s all ease;
+                }
+              }
+
+              a {
+                display: block;
+                font-size: $fontSize;
+                font-family: $secondFont;
+                font-weight: lighter;
+                white-space: nowrap;
+                width: 100%;
+                height: 100%;
+                padding: 0 20px;
+                transition: 0.3s all ease;
+              }
+
+              &:hover {
+                background-color: $hoverColor;
+                a {
+                  color: $light-color;
+                }
+
+                &:before {
+                  border-bottom: 12px solid $hoverColor;
+                }
+              }
+            }
+          }
+
+          &:hover {
+            ul.sub-menu {
+              max-height: 1000px;
+              opacity: 1;
+              visibility: visible;
+              height: fit-content;
+              width: fit-content;
+
+              li {
+                a {
+                  padding: 10px 20px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

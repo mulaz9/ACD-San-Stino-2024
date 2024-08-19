@@ -1,0 +1,30 @@
+// Link non evidenziati al click
+* {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+html {
+  margin-top: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: $firstFont;
+  background-color: #eee;
+  color: $fontColor;
+
+  a {
+    color: $titleColor;
+    text-decoration: none;
+  }
+}
+
+ul {
+  @include ul_reset();
+}
+
+.container {
+  @include container();
+}
