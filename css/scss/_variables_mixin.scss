@@ -5,16 +5,18 @@ $fontSize: 16px;
 $fontSizeMedium: 18px;
 $fontSizeSubtitle: 20px;
 $fontSizeLarge: 24px;
-$fontSizeTitle: 32px;
-$fontSizeXL: 48px;
-$fontSizeXXL: 64px;
-$fontSizeHuge: 80px;
+$fontSizeTitleSmall: 32px;
+$fontSizeTitle: 48px;
+$fontSizeXL: 64px;
+$fontSizeXXL: 80px;
 
 $light-color: white;
 $medium-color: grey;
 $dark-color: black;
 $primary-color: #52abe3;
+$primary-opaque: rgba(82, 171, 227, 0.9);
 $secondary-color: #c9c8c8;
+$borderColor: #dadadd;
 $hoverColor: #333333;
 $fontColor: #333333;
 $titleColor: #000000;
@@ -23,13 +25,22 @@ $titleSpacing: 0.03rem;
 $sectionWidth: calc(100% - 8rem);
 
 $sliderHeight: calc(100vh - 130px);
-$headerHeight: 100px;
+
+$headerHeight: 130px;
+$headerHeightFixed: 100px;
+$mobileHeaderHeight: 130px;
+
+$slideshowHeight: calc(100vh - $headerHeight);
+$partialSlideshowHeight: calc(75vh - $headerHeight);
+$slideshowHeightMobile: calc(100vh - $mobileHeaderHeight);
 
 $shadow: $primary-color 4px 4px;
+$shadowDark: 1px 1px 2px black;
 $newsImgShadow: 10px 20px 15px #333;
 
+$sectionMaxWidth: 1360px;
+
 @mixin container() {
-  width: 100%;
   margin-right: auto;
   margin-left: auto;
   padding-right: 2rem;
@@ -40,7 +51,7 @@ $newsImgShadow: 10px 20px 15px #333;
     padding-right: 1rem;
   }
 
-  @include media_DesktopLarge() {
+  @include media_DesktopLarger() {
     padding-left: 4rem;
     padding-right: 4rem;
     max-width: $sectionWidth;
@@ -75,7 +86,7 @@ $newsImgShadow: 10px 20px 15px #333;
   transition: 0.3s all ease;
 }
 
-@mixin overlay($opacity: 0.3) {
+@mixin overlay($opacity: 0.4) {
   content: "";
   display: block;
   width: 100%;
@@ -87,4 +98,13 @@ $newsImgShadow: 10px 20px 15px #333;
   background: transparent linear-gradient(180deg, #000 0%, #0000 100%) 0% 0%
     no-repeat padding-box;
   opacity: $opacity;
+}
+
+@mixin transition($elements: all, $interval: 0.3s, $ease: ease-in-out) {
+  transition: $elements $interval $ease;
+}
+
+@mixin iframeAdaptation() {
+  width: 100%;
+  margin: 0 -1%;
 }

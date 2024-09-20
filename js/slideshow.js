@@ -7,21 +7,18 @@ if (slidesCount > 1) {
     // Optional parameters
     direction: "horizontal",
     loop: true,
+    speed: 600,
 
     // If we need pagination
     pagination: {
       el: "#main_slideshow .swiper-pagination",
+      clickable: true,
     },
 
     // Navigation arrows
     navigation: {
       nextEl: "#main_slideshow .swiper-button-next",
       prevEl: "#main_slideshow .swiper-button-prev",
-    },
-
-    // And if we need scrollbar
-    scrollbar: {
-      el: "#main_slideshow .swiper-scrollbar",
     },
   });
 }

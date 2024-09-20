@@ -34,9 +34,6 @@ $slideshowLogoURL = wp_get_attachment_image_url($slideshowLogo['ID'], 'medium');
                 <!-- If we need navigation buttons -->
                 <div class="swiper-button-prev"></div>
                 <div class="swiper-button-next"></div>
-
-                <!-- If we need scrollbar -->
-                <div class="swiper-scrollbar"></div>
             <?php } ?>
         </div>
     </div>

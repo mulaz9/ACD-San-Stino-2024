@@ -1,12 +1,28 @@
 #main_slideshow {
   width: 100%;
 
+  & + p {
+    height: 2000px;
+  }
+
   &.full_height {
-    height: calc(100vh - $headerHeight);
+    height: $slideshowHeight;
+
+    @include media_Mobile() {
+      height: $slideshowHeightMobile;
+    }
   }
 
   &.partial_height {
-    height: calc(75vh - $headerHeight);
+    height: $slideshowHeight;
+
+    @include media_Mobile() {
+      height: $slideshowHeightMobile;
+    }
+
+    @include media_DesktopLarger() {
+      height: $partialSlideshowHeight;
+    }
   }
 
   .swiper {
@@ -32,20 +48,73 @@
         gap: 60px;
         position: absolute;
         z-index: 50;
-        top: 20%;
+        height: 100%;
+        top: 0;
         left: 50%;
         transform: translateX(-50%);
+        @include transition();
+
+        @include media_Mobile() {
+          width: 100%;
+          top: 30%;
+        }
+
         img.slideshow_logo {
-          width: 200px;
+          width: 130px;
           height: auto;
+          border-radius: 6px;
+          @include media_DesktopLarger() {
+            width: 200px;
+          }
         }
 
         .slideshow_caption {
           color: $light-color;
-          font-size: $fontSizeHuge;
+          font-size: $fontSizeXL;
           font-weight: bold;
           font-family: $secondFont;
+          text-align: center;
+
+          @include media_Mobile() {
+            font-size: $fontSizeTitle;
+          }
+
+          @include media_DesktopLarger() {
+            font-size: $fontSizeXXL;
+          }
         }
+      }
+    }
+
+    .swiper-pagination {
+      bottom: 30px;
+      .swiper-pagination-bullet {
+        border: 2px solid $light-color;
+        width: 12px;
+        height: 12px;
+        background: $light-color;
+      }
+    }
+    .swiper-button-prev {
+      left: 30px;
+    }
+
+    .swiper-button-next {
+      right: 30px;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+      color: $light-color;
+      opacity: 0.3;
+      @include transition();
+
+      @include media_Mobile() {
+        display: none;
+      }
+
+      &:hover {
+        opacity: 1;
       }
     }
   }

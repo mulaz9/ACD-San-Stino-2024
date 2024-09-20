@@ -7,9 +7,8 @@ function enqueueAssets()
 
     if (!is_admin()) {
         wp_enqueue_style('main-css', get_template_directory_uri() . '/css/main.min.css');
-        wp_enqueue_style('swiper-csss', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css');
+        wp_enqueue_style('swiper-css', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css');
     }
-
 
     wp_register_script('font-awesome', 'https://kit.fontawesome.com/f2426038f9.js', array('jquery'), '5.15.4', true);
     wp_register_script('swiper-js', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', array('jquery'), '11.1.9', true);
@@ -21,9 +20,14 @@ function enqueueAssets()
     wp_enqueue_script('main-js');
 }
 
+function adminAssets()
+{
+    wp_enqueue_style('admin-css', get_template_directory_uri() . '/css/admin.min.css');
+}
+
 function slideshowAssets()
 {
-    $GLOBALS['images_slideshow'] = get_field('slideshow', get_the_ID());
+    $GLOBALS['images_slideshow'] = get_field('slideshow_gallery', get_the_ID());
     global $images_slideshow;
 
 
@@ -33,4 +37,5 @@ function slideshowAssets()
 }
 
 add_action('wp_enqueue_scripts', 'enqueueAssets', 1);
+add_action('admin_head', 'adminAssets', 1);
 add_action('wp_enqueue_scripts', 'slideshowAssets', 101);

@@ -26,6 +26,17 @@ gulp.task("styles", function minifyFunc() {
     .pipe(gulp.dest("./css"));
 });
 
+gulp.task("admin-styles", function minifyFunc() {
+  return gulp
+    .src("./css/scss/admin.scss")
+    .pipe(sass().on("error", sass.logError))
+    .pipe(concatCss("admin.css"))
+    .pipe(sourcemaps.init({ loadMaps: true }))
+    .pipe(rename({ suffix: ".min" }))
+    .pipe(sourcemaps.write("."))
+    .pipe(gulp.dest("./css"));
+});
+
 gulp.task("minify-js", function () {
   return gulp
     .src(["js/*.js", "!js/*.min.js"])
@@ -38,5 +49,6 @@ gulp.task("minify-js", function () {
 
 gulp.task("watch", function watchFunc() {
   gulp.watch("./css/scss/*.scss", gulp.series("styles"));
+  gulp.watch("./css/scss/*.scss", gulp.series("admin-styles"));
   gulp.watch(["js/*.js", "!js/*.min.js"], gulp.series("minify-js"));
 });

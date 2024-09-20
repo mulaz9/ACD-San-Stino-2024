@@ -45,6 +45,6 @@
     <?php wp_head(); ?>
 </head>
 
-<body>
+<body <?php body_class(); ?>>
 
     <?php get_template_part('partials/boxes/headerbox'); ?>

@@ -11,7 +11,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: $firstFont;
+  font-family: $firstFont !important;
   background-color: #eee;
   color: $fontColor;
 
@@ -21,10 +21,117 @@ body {
   }
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
 ul {
   @include ul_reset();
 }
 
 .container {
   @include container();
+}
+
+.section {
+  margin: 0 auto;
+  max-width: 1440px;
+
+  &.has_iframe {
+    iframe {
+      @include iframeAdaptation();
+    }
+  }
+
+  & + .section {
+    margin-bottom: 80px;
+
+    @include media_Mobile() {
+      margin-bottom: 60px;
+    }
+  }
+}
+
+.hidden {
+  opacity: 0;
+}
+
+#main_slideshow {
+  margin-bottom: 80px;
+
+  @include media_Mobile() {
+    margin-bottom: 60px;
+  }
+
+  & + .section {
+    margin-bottom: 80px;
+
+    @include media_Mobile() {
+      margin-bottom: 60px;
+    }
+  }
+}
+
+#main_content {
+  margin-top: 60px;
+  margin-bottom: 80px;
+
+  @include media_Mobile() {
+    margin-top: 40px;
+    margin-bottom: 80px;
+  }
+
+  .foto_squadra {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.the_title {
+  color: $primary-color;
+  font-size: $fontSizeXL;
+  font-weight: bolder;
+  text-shadow: $shadowDark;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 30px;
+
+  @include media_Mobile() {
+    font-size: $fontSizeTitleSmall;
+    margin-bottom: 20px;
+  }
+}
+
+.the_subtitle {
+  text-align: center;
+  text-transform: uppercase;
+  font-family: $secondFont;
+  font-size: $fontSizeMedium;
+  font-weight: bold;
+  margin-bottom: 30px;
+
+  @include media_Mobile() {
+    font-size: $fontSize;
+    margin-bottom: 20px;
+  }
+}
+
+.section_title {
+  color: $primary-color;
+  font-size: $fontSizeTitle;
+  font-weight: bolder;
+  text-shadow: $shadowDark;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 30px;
+
+  @include media_Mobile() {
+    font-size: $fontSizeTitleSmall;
+    margin-bottom: 20px;
+  }
 }
