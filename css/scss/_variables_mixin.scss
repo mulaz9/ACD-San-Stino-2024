@@ -1,15 +1,21 @@
 $firstFont: "Montserrat", sans-serif;
 $secondFont: "Poppins", serif;
 
+$fontSizeSmall: 14px;
 $fontSize: 16px;
 $fontSizeMedium: 18px;
 $fontSizeSubtitle: 20px;
 $fontSizeLarge: 24px;
 $fontSizeTitleSmall: 32px;
+$fontSizeTitleMedium: 40px;
 $fontSizeTitle: 48px;
 $fontSizeXL: 64px;
 $fontSizeXXL: 80px;
 
+$lineHeight: 160%;
+$lineHeightTitle: 150%;
+
+$bodyBg: #fff;
 $light-color: white;
 $medium-color: grey;
 $dark-color: black;
@@ -19,6 +25,9 @@ $secondary-color: #c9c8c8;
 $borderColor: #dadadd;
 $hoverColor: #333333;
 $fontColor: #333333;
+$sectionDefaultColor: rgb(255, 255, 255, 0.7);
+$sectionLightColor: rgb(238, 237, 234, 0.7);
+$sectionDarkColor: #333333;
 $titleColor: #000000;
 $titleSpacing: 0.03rem;
 
@@ -40,11 +49,16 @@ $newsImgShadow: 10px 20px 15px #333;
 
 $sectionMaxWidth: 1360px;
 
+$postsGridGap: 40px;
+
+$radius: 6px;
+
 @mixin container() {
   margin-right: auto;
   margin-left: auto;
   padding-right: 2rem;
   padding-left: 2rem;
+  max-width: $sectionMaxWidth;
 
   @include media_Phone() {
     padding-left: 1rem;
@@ -54,7 +68,6 @@ $sectionMaxWidth: 1360px;
   @include media_DesktopLarger() {
     padding-left: 4rem;
     padding-right: 4rem;
-    max-width: $sectionWidth;
   }
 }
 
@@ -86,6 +99,39 @@ $sectionMaxWidth: 1360px;
   transition: 0.3s all ease;
 }
 
+@mixin arrowLink($color: false, $size: false) {
+  @if ($color) {
+    color: $color;
+  } @else {
+    color: $primary-color;
+  }
+
+  @if ($size) {
+    font-size: $size;
+  } @else {
+    font-size: $fontSize;
+  }
+
+  text-transform: lowercase;
+
+  &:after {
+    content: "\f0a9";
+    font-family: "Font Awesome 5 Free";
+    font-weight: bold;
+    margin-left: 10px;
+    @if ($color) {
+      color: $color;
+    } @else {
+      color: $primary-color;
+    }
+    @if ($size) {
+      font-size: calc($size / 100 * 80);
+    } @else {
+      font-size: calc($fontSize / 100 * 80);
+    }
+  }
+}
+
 @mixin overlay($opacity: 0.4) {
   content: "";
   display: block;
@@ -105,6 +151,35 @@ $sectionMaxWidth: 1360px;
 }
 
 @mixin iframeAdaptation() {
-  width: 100%;
+  width: 102%;
   margin: 0 -1%;
+}
+
+@mixin btn(
+  $color: $fontColor,
+  $backgorund: $primary-color,
+  $border: 2px solid $primary-color,
+  $hoverColor: $primary-color,
+  $hoverBackground: transparent,
+  $hoverBorder: 2px solid $primary-color
+) {
+  a {
+    border-radius: 30px;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    padding: 10px 25px;
+    color: $color;
+    background: $backgorund;
+    border: $border;
+    font-family: $secondFont;
+    text-transform: capitalize;
+    @include transition();
+
+    &:hover {
+      color: $hoverColor;
+      background: $hoverBackground;
+      border: $hoverBorder;
+    }
+  }
 }

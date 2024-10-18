@@ -1,6 +1,6 @@
 <footer id="footer">
     <div class="social">
-        <a href="https://www.facebook.com/acdsanstino" target="_blank"><i class="fab fa-brands fa-facebook fa-2x"></i></a>
+        <a href="https://www.facebook.com/acdsanstino" target="_blank"><i class="fab fa-brands fa-facebook-square fa-2x"></i></a>
         <a href="https://www.instagram.com/acd_sanstino/" target="_blank"><i class="fab fa-brands fa-instagram fa-2x"></i></a>
     </div>
     <div class="preferenze-cookie">

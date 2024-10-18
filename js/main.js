@@ -99,16 +99,25 @@ if (isMobile) {
   showSubmenu();
   showMenu();
 }
-
 // Sticky menu background
 
 const nav = document.querySelector("#header");
 const slideshow = document.querySelector("#main_slideshow");
-const slideshowHeight = slideshow.offsetHeight;
-window.addEventListener("scroll", function () {
-  if (this.window.scrollY > slideshowHeight) {
-    nav.classList.add("fixed");
-  } else {
-    nav.classList.remove("fixed");
-  }
-});
+if (slideshow) {
+  const slideshowHeight = slideshow.offsetHeight;
+  window.addEventListener("scroll", function () {
+    if (this.window.scrollY > slideshowHeight) {
+      nav.classList.add("fixed");
+    } else {
+      nav.classList.remove("fixed");
+    }
+  });
+} else {
+  window.addEventListener("scroll", function () {
+    if (this.window.scrollY > 500) {
+      nav.classList.add("fixed");
+    } else {
+      nav.classList.remove("fixed");
+    }
+  });
+}

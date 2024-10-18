@@ -1,0 +1,102 @@
+.single-post {
+  #main_content {
+    display: flex;
+
+    @include media_Mobile() {
+      flex-direction: column;
+    }
+
+    .thumb {
+      @include media_AllDesktop() {
+        width: 45%;
+        max-height: 85vh;
+      }
+      img {
+        @include objectfit_image();
+        @include media_AllDesktop() {
+          border-radius: $radius;
+          box-shadow: 10px 20px 15px #333;
+        }
+      }
+    }
+
+    .post_content {
+      padding: 40px 25px;
+
+      @include media_AllDesktop() {
+        width: 55%;
+        padding: 80px 0 80px 100px;
+      }
+
+      @include media_Phone() {
+        padding: 30px 0;
+      }
+
+      .categories_wrap {
+        display: flex;
+        padding-bottom: 40px;
+        font-size: $fontSizeMedium;
+        font-weight: bold;
+
+        @include media_Phone() {
+          font-size: $fontSize;
+          padding-bottom: 10px;
+          flex-wrap: wrap;
+        }
+
+        .separator {
+          padding: 0 15px;
+          &:after {
+            content: "\f7a5";
+            color: $medium-color;
+            font-weight: bold;
+            font-family: "Font Awesome 5 Pro";
+          }
+          &:last-child {
+            display: none;
+          }
+        }
+      }
+      .post_date {
+        font-style: italic;
+        font-size: $fontSize;
+        color: $medium-color;
+        margin-bottom: 20px;
+      }
+
+      .the_title {
+        font-size: $fontSizeTitle;
+        text-align: left;
+
+        @include media_Phone() {
+          font-size: $fontSizeTitleSmall;
+        }
+      }
+
+      .btns_wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 60px;
+        margin-top: 40px;
+
+        @include media_Phone() {
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+          gap: unset;
+        }
+
+        // AddToAny
+        .addtoany_list a,
+        .widget .addtoany_list a {
+          display: inline-flex;
+        }
+
+        .btn {
+          @include btn();
+        }
+      }
+    }
+  }
+}

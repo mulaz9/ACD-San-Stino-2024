@@ -1,0 +1,21 @@
+{
+  "remotePath": "./davidem238.sg-host.com/public_html/wp-content/themes/ACD San Stino",
+  "host": "ftp.davidem238.sg-host.com",
+  "username": "dmulato@davidem238.sg-host.com",
+  "password": "~5$_.h(3r55c",
+  "port": 21,
+  "secure": false,
+  "protocol": "ftp",
+  "uploadOnSave": false,
+  "passive": false,
+  "debug": false,
+  "privateKeyPath": null,
+  "passphrase": null,
+  "agent": null,
+  "allow": [],
+  "ignore": ["\\.vscode", "\\.git", "\\.DS_Store"],
+  "generatedFiles": {
+    "extensionsToInclude": [".php, .js, .css, .html"],
+    "path": ""
+  }
+}

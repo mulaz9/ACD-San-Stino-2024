@@ -1,0 +1,76 @@
+#uploaded_files {
+  .cards_wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    .card_wrap {
+      position: relative;
+      width: calc(100% / 4 - 90px / 4);
+      max-height: 300px;
+      aspect-ratio: 1.4/1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      padding: 30px;
+      @include media_Mobile() {
+        width: 100%;
+      }
+
+      .upload_title {
+        z-index: 10;
+        color: $light-color;
+        text-transform: uppercase;
+        font-size: $fontSizeTitleMedium;
+        text-shadow: $shadowDark;
+        text-align: right;
+
+        @include media_Mobile() {
+          font-size: $fontSizeTitleSmall;
+        }
+      }
+
+      .thumb_wrap {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        border-radius: $radius;
+        border: 3px solid $primary-color;
+
+        img {
+          @include objectfit_image();
+        }
+
+        &:after {
+          content: ""; // :before and :after both require content
+          position: absolute;
+          width: 100%; // Makes the overlay smaller to accommodate the skew
+          height: 100%;
+          top: 0;
+          left: 0;
+          background-image: linear-gradient(
+            120deg,
+            rgba(0, 0, 0, 0.6),
+            rgba(0, 0, 0, 0.2)
+          );
+          opacity: 0.8;
+        }
+      }
+
+      .btns_wrap {
+        z-index: 10;
+        align-self: flex-end;
+
+        .btn_file {
+          @include arrowLink();
+          text-shadow: $shadowDark;
+        }
+      }
+    }
+  }
+}

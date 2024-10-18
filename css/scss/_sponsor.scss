@@ -1,0 +1,101 @@
+#sponsor {
+  .sponsor_section:not(:last-child) {
+    padding-bottom: 150px;
+    @include media_Mobile() {
+      padding-bottom: 80px;
+    }
+    .sponsor_title {
+      @include media_AllDesktop() {
+        margin-bottom: 60px;
+      }
+    }
+  }
+  #main_sponsor {
+    .main_sponsor_logo {
+      display: block;
+      @include media_ExcludePhone() {
+        max-width: 50%;
+        height: auto;
+        margin: 0 auto;
+      }
+
+      @include media_Phone() {
+        max-width: 80%;
+        height: auto;
+        margin: 0 auto;
+      }
+
+      img {
+        @include objectfit_image;
+      }
+    }
+  }
+
+  #official_sponsor {
+    max-width: 80%;
+    margin: 0 auto;
+
+    .logos_wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 60px 80px;
+
+      @include media_Mobile() {
+        gap: 40px 50px;
+      }
+
+      .official_sponsor_logo {
+        max-width: calc(100% / 4 - 240px / 4);
+
+        @include media_Mobile() {
+          max-width: calc(100% / 4 - 150px / 4);
+        }
+
+        @include media_Phone() {
+          max-width: calc(100% / 2 - 50px / 2);
+        }
+
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+  }
+
+  #official_partners {
+    max-width: 80%;
+    margin: 0 auto;
+
+    .logos_wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 60px;
+
+      @include media_Mobile() {
+        gap: 40px;
+      }
+
+      .official_partner_logo {
+        max-width: calc(100% / 5 - 240px / 5);
+
+        @include media_Mobile() {
+          max-width: calc(100% / 5 - 160px / 5);
+        }
+
+        @include media_Phone() {
+          max-width: calc(100% / 3 - 80px / 3);
+        }
+
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+  }
+}

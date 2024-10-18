@@ -14,6 +14,7 @@ function enqueueAssets()
     wp_register_script('swiper-js', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', array('jquery'), '11.1.9', true);
     wp_register_script('main-js', get_template_directory_uri() . '/js/main.min.js', array('jquery'), '1.0.0', true);
     wp_register_script('slideshow-js', get_template_directory_uri() . '/js/slideshow.min.js', array('swiper-js'), '1.0.0', true);
+    wp_register_script('post_preview-js', get_template_directory_uri() . '/js/post_preview.min.js', array('swiper-js'), '1.0.0', true);
 
     wp_enqueue_script('font-awesome');
     wp_enqueue_script('swiper-js');
@@ -25,8 +26,10 @@ function adminAssets()
     wp_enqueue_style('admin-css', get_template_directory_uri() . '/css/admin.min.css');
 }
 
-function slideshowAssets()
+function blocksAssets()
 {
+
+    // Slideshow
     $GLOBALS['images_slideshow'] = get_field('slideshow_gallery', get_the_ID());
     global $images_slideshow;
 
@@ -34,8 +37,16 @@ function slideshowAssets()
     if ($images_slideshow && count($images_slideshow) > 0) {
         wp_enqueue_script('slideshow-js');
     }
+
+    // Post preview
+    $layout = get_field('post_preview_layout', get_the_ID());
+
+    if ($layout == 'carousel') {
+        wp_enqueue_script('post_preview-js');
+    }
 }
+
 
 add_action('wp_enqueue_scripts', 'enqueueAssets', 1);
 add_action('admin_head', 'adminAssets', 1);
-add_action('wp_enqueue_scripts', 'slideshowAssets', 101);
+add_action('wp_enqueue_scripts', 'blocksAssets', 101);

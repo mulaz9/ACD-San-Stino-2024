@@ -40,3 +40,16 @@ add_action('acf/init', 'acf_wysiwyg_remove_wpautop');
 
 // Add featured image
 add_theme_support('post-thumbnails');
+
+
+// Limit words
+function limit_words($string, $word_limit)
+{
+    $string = strip_tags($string);
+    $words = explode(' ', strip_tags($string));
+    $return = trim(implode(' ', array_slice($words, 0, $word_limit)));
+    if (strlen($return) < strlen($string)) {
+        $return .= '...';
+    }
+    return $return;
+}

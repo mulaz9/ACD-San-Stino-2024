@@ -12,7 +12,6 @@ body {
   margin: 0;
   padding: 0;
   font-family: $firstFont !important;
-  background-color: #eee;
   color: $fontColor;
 
   a {
@@ -39,8 +38,36 @@ ul {
 }
 
 .section {
-  margin: 0 auto;
-  max-width: 1440px;
+  &.default {
+    background-color: $sectionDefaultColor;
+  }
+
+  &.light {
+    background-color: $sectionLightColor;
+    padding-top: 80px;
+
+    @include media_Mobile() {
+      padding-top: 60px;
+    }
+  }
+
+  &.dark {
+    background-color: $sectionDarkColor;
+    padding-top: 80px;
+
+    @include media_Mobile() {
+      padding-top: 60px;
+    }
+  }
+
+  &.light + .section,
+  &.dark + .section {
+    padding-top: 80px;
+
+    @include media_Mobile() {
+      padding-top: 60px;
+    }
+  }
 
   &.has_iframe {
     iframe {
@@ -49,10 +76,10 @@ ul {
   }
 
   & + .section {
-    margin-bottom: 80px;
+    padding-bottom: 80px;
 
     @include media_Mobile() {
-      margin-bottom: 60px;
+      padding-bottom: 60px;
     }
   }
 }
@@ -62,17 +89,13 @@ ul {
 }
 
 #main_slideshow {
-  margin-bottom: 80px;
-
-  @include media_Mobile() {
-    margin-bottom: 60px;
-  }
-
   & + .section {
-    margin-bottom: 80px;
+    padding-top: 80px;
+    padding-bottom: 80px;
 
     @include media_Mobile() {
-      margin-bottom: 60px;
+      padding-top: 60px;
+      padding-bottom: 60px;
     }
   }
 }
@@ -100,10 +123,10 @@ ul {
   text-align: center;
   margin-top: 0;
   margin-bottom: 30px;
+  line-height: $lineHeightTitle;
 
   @include media_Mobile() {
     font-size: $fontSizeTitleSmall;
-    margin-bottom: 20px;
   }
 }
 
@@ -113,11 +136,12 @@ ul {
   font-family: $secondFont;
   font-size: $fontSizeMedium;
   font-weight: bold;
-  margin-bottom: 30px;
+  margin-bottom: 60px;
+  line-height: $lineHeightTitle;
 
   @include media_Mobile() {
     font-size: $fontSize;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
   }
 }
 
@@ -128,10 +152,46 @@ ul {
   text-shadow: $shadowDark;
   text-align: center;
   margin-top: 0;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 
   @include media_Mobile() {
     font-size: $fontSizeTitleSmall;
+  }
+}
+
+.prev_title {
+  font-family: $secondFont;
+  font-size: $fontSizeLarge;
+  font-weight: bold;
+  margin-bottom: 20px;
+  line-height: $lineHeightTitle;
+
+  @include media_Mobile() {
+    font-size: $fontSize;
     margin-bottom: 20px;
+  }
+}
+
+.description,
+.the_content {
+  line-height: $lineHeight;
+  font-family: $secondFont;
+}
+
+#prossima_partita,
+.prossima_partita {
+  position: relative;
+  overflow: hidden;
+
+  &:after {
+    content: url(../img/svg/soccer-ball-svgrepo-com.svg);
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    opacity: 0.2;
+    z-index: -1;
+    scale: 3.5;
   }
 }
