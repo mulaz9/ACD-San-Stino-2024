@@ -1,10 +1,11 @@
 <?php
 
-use function PHPSTORM_META\type;
+global $current_squadra_data, $prima_squadra_data;
 
 $hide_title = get_field('main_content_hide_title');
 $titolo = !empty(get_field('main_content_title')) ? get_field('main_content_title') : get_the_title();
 $sottotitolo = get_field('main_content_subtitle');
+$girone = $prima_squadra_data->girone;
 $content = get_the_content();
 $foto =  wp_get_attachment_image_url(get_field('main_content_image')['ID'], 'full');
 $image_position = get_field('main_content_image_position');
@@ -13,17 +14,19 @@ $has_cta = get_field('main_content_btns_enable');
 $btns = get_field('main_content_btns');
 
 ?>
-<main id="main_content" class="container section squadre_main_content image_<?php echo $image_position; ?>">
+<main id="main_content" class="container section squadre_main_content image_<?php echo $image_position; ?> text_layout_<?php echo $text_layout; ?>">
     <?php if ($image_position == 'left' || $image_position == 'right') { ?>
         <aside class="aside_content"> <?php } else { ?><div class="text_content"><?php } ?>
-            <?php if (!empty($titolo)) { ?>
+            <?php if (!$hide_title && !empty($titolo)) { ?>
                 <h1 class="the_title"><?php echo $titolo; ?></h1>
             <?php } ?>
-            <?php if (!empty($sottotitolo)) { ?>
+            <?php if (!empty($sottotitolo) && !is_page_template('template-squadra.php')) { ?>
                 <div class="the_subtitle"><?php echo $sottotitolo; ?></div>
+            <?php } else { ?>
+                <div class="the_subtitle girone"><?php echo $girone; ?></div>
             <?php } ?>
             <?php if (!empty($content)) { ?>
-                <p class="the_content text_layout_<?php echo $text_layout; ?>s"><?php echo $content; ?></p>
+                <p class="the_content"><?php echo $content; ?></p>
             <?php } ?>
             <?php if ($has_cta && !empty($btns)) { ?>
                 <div class="btns">
@@ -46,7 +49,7 @@ $btns = get_field('main_content_btns');
                                 $target = '_blank';
                                 break;
                         } ?>
-                        <div class="btn btn_<?php echo $btnType; ?>"><a href="<?php echo $btnLink; ?>" target="<?php echo $target; ?>"><?php echo $btnLabel ?></a></div>
+                        <div class="btn btn_<?php echo $btnType; ?>"><a href="<?php echo $btnLink; ?>" target="<?php echo $target; ?>"><span class="icon"></span><?php echo $btnLabel ?></a></div>
                     <?php } ?>
                 </div>
             <?php } ?>

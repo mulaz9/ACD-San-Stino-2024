@@ -81,10 +81,9 @@ function my_acf_add_local_field_groups()
                 'label' => 'Posizione dell\'immagine',
                 'type' => 'select',
                 'choices' => array(
-                    'top' => 'Sopra il testo',
-                    'left' => 'A destra del testo',
-                    'right' => 'A sinistra del testo',
                     'bottom' => 'Sotto il testo',
+                    'left' => 'A sinistra del testo',
+                    'right' => 'A destra del testo',
                 ),
                 'default' => 'bottom',
                 'wrapper' => [
@@ -599,13 +598,6 @@ function my_acf_add_local_field_groups()
         'title' => 'Informazioni Principali',
         'fields' => array(
             array(
-                'key' => 'titolo_custom_squadra',
-                'name' => 'titolo_custom_squadra',
-                'label' => 'Titolo Custom',
-                'type' => 'text',
-                'instructions' => 'Inserire il nome della squadra se diverso dal titolo della pagina (es: Prima Squadra)',
-            ),
-            array(
                 'key' => 'girone_squadra',
                 'name' => 'girone_squadra',
                 'label' => 'Girone Squadra',
@@ -619,12 +611,6 @@ function my_acf_add_local_field_groups()
                 'type' => 'text',
                 'instructions' => 'Inserire il nome della coppa regionale(es: Trofeo Regione Veneto)',
             ),
-            array(
-                'key' => 'foto_squadra',
-                'name' => 'foto_squadra',
-                'label' => 'Foto Squadra',
-                'type' => 'image',
-            ),
         ),
         'location' => array(
             array(
@@ -636,7 +622,7 @@ function my_acf_add_local_field_groups()
             )
         ),
         'menu_order' => 0,
-        'position' => 'normal',
+        'position' => 'side',
         'style' => 'default',
         'label_placement' => 'top',
         'instruction_placement' => 'label',

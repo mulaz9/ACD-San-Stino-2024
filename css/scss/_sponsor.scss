@@ -20,7 +20,7 @@
       }
 
       @include media_Phone() {
-        max-width: 80%;
+        max-width: 90%;
         height: auto;
         margin: 0 auto;
       }
@@ -44,6 +44,10 @@
 
       @include media_Mobile() {
         gap: 40px 50px;
+      }
+
+      @include media_Phone() {
+        max-width: 90%;
       }
 
       .official_sponsor_logo {

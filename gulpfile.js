@@ -47,7 +47,7 @@ gulp.task("minify-js", function () {
     .pipe(gulp.dest("js/"));
 });
 
-gulp.task("watch", function watchFunc() {
+gulp.task("default", function watchFunc() {
   gulp.watch("./css/scss/*.scss", gulp.series("styles"));
   gulp.watch("./css/scss/*.scss", gulp.series("admin-styles"));
   gulp.watch(["js/*.js", "!js/*.min.js"], gulp.series("minify-js"));

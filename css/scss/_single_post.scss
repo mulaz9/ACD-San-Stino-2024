@@ -1,5 +1,9 @@
 .single-post {
   #main_content {
+    & + #sponsor {
+      padding-top: 80px;
+    }
+
     display: flex;
 
     @include media_Mobile() {
@@ -22,10 +26,17 @@
 
     .post_content {
       padding: 40px 25px;
+      display: flex;
+      flex-direction: column;
 
       @include media_AllDesktop() {
         width: 55%;
         padding: 80px 0 80px 100px;
+      }
+
+      @include media_Mobile() {
+        justify-content: center;
+        align-items: center;
       }
 
       @include media_Phone() {
@@ -34,14 +45,19 @@
 
       .categories_wrap {
         display: flex;
-        padding-bottom: 40px;
         font-size: $fontSizeMedium;
         font-weight: bold;
 
         @include media_Phone() {
           font-size: $fontSize;
-          padding-bottom: 10px;
           flex-wrap: wrap;
+        }
+
+        .category_link {
+          padding-bottom: 40px;
+          @include media_Phone() {
+            padding-bottom: 10px;
+          }
         }
 
         .separator {
@@ -80,11 +96,8 @@
         gap: 60px;
         margin-top: 40px;
 
-        @include media_Phone() {
-          flex-direction: row;
+        @include media_Mobile() {
           align-items: center;
-          justify-content: space-between;
-          gap: unset;
         }
 
         // AddToAny

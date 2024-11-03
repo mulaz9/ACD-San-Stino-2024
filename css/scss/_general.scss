@@ -74,7 +74,6 @@ ul {
       @include iframeAdaptation();
     }
   }
-
   & + .section {
     padding-bottom: 80px;
 
@@ -86,33 +85,6 @@ ul {
 
 .hidden {
   opacity: 0;
-}
-
-#main_slideshow {
-  & + .section {
-    padding-top: 80px;
-    padding-bottom: 80px;
-
-    @include media_Mobile() {
-      padding-top: 60px;
-      padding-bottom: 60px;
-    }
-  }
-}
-
-#main_content {
-  margin-top: 60px;
-  margin-bottom: 80px;
-
-  @include media_Mobile() {
-    margin-top: 40px;
-    margin-bottom: 80px;
-  }
-
-  .foto_squadra {
-    width: 100%;
-    height: auto;
-  }
 }
 
 .the_title {
@@ -173,9 +145,38 @@ ul {
 }
 
 .description,
-.the_content {
+.the_content,
+p {
   line-height: $lineHeight;
   font-family: $secondFont;
+}
+
+.btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn {
+  @include media_Phone() {
+    width: 100%;
+  }
+}
+
+.btn_internal {
+  @include btn();
+}
+
+.btn_external {
+  @include btn_extrenal();
+}
+
+.btn_pdf {
+  @include btn_pdf();
 }
 
 #prossima_partita,

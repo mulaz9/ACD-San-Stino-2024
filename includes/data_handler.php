@@ -26,10 +26,8 @@ function get_prima_squadra_data()
 
     $prima_squadra_data = new stdClass();
 
-    $prima_squadra_data->titolo = !empty(get_field('titolo_custom_squadra', $prima_squadra_ID)) ? get_field('titolo_custom_squadra', $prima_squadra_ID) : get_the_title($prima_squadra_ID);
     $prima_squadra_data->girone = get_field('girone_squadra', $prima_squadra_ID);
     $prima_squadra_data->nome_coppa = get_field('nome_coppa', $prima_squadra_ID);
-    $prima_squadra_data->foto_url = wp_get_attachment_image_url(get_field('foto_squadra', $prima_squadra_ID)['ID'], 'full');
     $prima_squadra_data->prossima_partita = get_field('prossima_partita', $prima_squadra_ID);
     $prima_squadra_data->prossima_partita_bg = get_field('prossima_partita_bg_color', $prima_squadra_ID);
     $prima_squadra_data->classifica_campionato = get_field('classifica_campionato', $prima_squadra_ID);
@@ -61,9 +59,7 @@ function get_current_squadra_data()
 
     $current_squadra_data = new stdClass();
 
-    $current_squadra_data->titolo = !empty(get_field('titolo_custom_squadra', $squadra_ID)) ? get_field('titolo_custom_squadra', $squadra_ID) : get_the_title($squadra_ID);
     $current_squadra_data->girone = get_field('girone_squadra', $squadra_ID);
-    $current_squadra_data->foto_url = wp_get_attachment_image_url(get_field('foto_squadra', $squadra_ID)['ID'], 'full');
     $current_squadra_data->prossima_partita = get_field('prossima_partita', $squadra_ID);
     $current_squadra_data->prossima_partita_bg = get_field('prossima_partita_bg_color', $squadra_ID);
     $current_squadra_data->classifica_campionato = get_field('classifica_campionato', $squadra_ID);

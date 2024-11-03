@@ -1,4 +1,14 @@
 #main_slideshow {
+  & + .section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+
+    @include media_Mobile() {
+      padding-top: 60px;
+      padding-bottom: 60px;
+    }
+  }
+
   & + p {
     height: 2000px;
   }

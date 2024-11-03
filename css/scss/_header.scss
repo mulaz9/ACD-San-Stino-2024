@@ -1,4 +1,14 @@
 #header {
+  & + .section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+
+    @include media_Mobile() {
+      padding-top: 60px;
+      padding-bottom: 60px;
+    }
+  }
+
   // background: linear-gradient($light-color 50%, $primary-color);
   height: $headerHeight;
   background-color: $primary-color;
@@ -83,6 +93,10 @@
         @include media_AllDesktop() {
           gap: 10px;
           transform: translateY(100%) translateX(50%);
+        }
+
+        @include media_Mobile() {
+          display: none;
         }
 
         i {

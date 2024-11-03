@@ -30,7 +30,7 @@ get_template_part('partials/boxes/uploads');
     <section id="classifica_home" class="classifica section has_iframe <?php echo $classifica_bg; ?>">
         <div class="container">
             <h1 class="section_title">Classifica</h1>
-            <div class="girone"><?php echo $girone; ?></div>
+            <div class="the_subtitle girone"><?php echo $girone; ?></div>
             <?php echo $classifica; ?>
         </div>
     </section>

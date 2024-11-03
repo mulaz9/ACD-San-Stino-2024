@@ -27,6 +27,11 @@
       aspect-ratio: 16/10;
       overflow: hidden;
       position: relative;
+
+      @include media_Phone {
+        aspect-ratio: 1/0.8;
+      }
+
       img {
         @include objectfit_image();
         border-radius: $radius $radius 0 0;

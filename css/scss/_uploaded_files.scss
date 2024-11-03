@@ -19,6 +19,14 @@
         width: 100%;
       }
 
+      &:hover {
+        .thumb_wrap {
+          img {
+            scale: 1.1;
+          }
+        }
+      }
+
       .upload_title {
         z-index: 10;
         color: $light-color;
@@ -44,6 +52,7 @@
 
         img {
           @include objectfit_image();
+          @include transition();
         }
 
         &:after {
@@ -68,7 +77,12 @@
 
         .btn_file {
           @include arrowLink();
+          @include transition();
           text-shadow: $shadowDark;
+
+          &:hover {
+            scale: 1.1;
+          }
         }
       }
     }

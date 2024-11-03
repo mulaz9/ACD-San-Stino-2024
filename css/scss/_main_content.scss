@@ -1,0 +1,74 @@
+#main_content {
+  @include media_AllDesktop() {
+    &.image_left,
+    &.image_right {
+      display: flex;
+
+      .aside_content {
+        max-width: 50%;
+
+        .the_title {
+          margin-bottom: 20px;
+          text-align: left;
+        }
+
+        .the_subtitle {
+          margin-bottom: 40px;
+          text-align: left;
+        }
+
+        .btns {
+          margin-top: 40px;
+          margin-bottom: unset;
+          justify-content: flex-start;
+        }
+      }
+    }
+
+    &.image_left {
+      flex-direction: row-reverse;
+
+      .aside_content {
+        padding: 60px 0 60px 100px;
+      }
+    }
+
+    &.image_right {
+      flex-direction: row;
+
+      .aside_content {
+        padding: 60px 100px 60px 0;
+      }
+    }
+  }
+
+  &.text_layout_two_columns {
+    @include media_ExcludePhone {
+      .the_content,
+      p {
+        column-count: 2;
+        column-gap: 60px;
+      }
+    }
+  }
+
+  .the_content + .btns,
+  p + .btns {
+    margin-top: 60px;
+  }
+
+  .thumb {
+    @include media_Phone {
+      aspect-ratio: 1/0.8;
+    }
+
+    img {
+      @include objectfit_image();
+      border-radius: $radius;
+    }
+  }
+
+  .btns {
+    margin-bottom: 60px;
+  }
+}

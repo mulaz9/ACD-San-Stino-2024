@@ -30,4 +30,7 @@ $postCategories = get_the_category();
 </main>
 
 
-<?php get_footer(); ?>
+<?php
+get_template_part('partials/boxes/sponsor');
+get_footer();
+?>
