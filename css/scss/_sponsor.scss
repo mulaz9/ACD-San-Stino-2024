@@ -10,6 +10,7 @@
       }
     }
   }
+
   #main_sponsor {
     .main_sponsor_logo {
       display: block;
@@ -32,72 +33,117 @@
   }
 
   #official_sponsor {
-    max-width: 80%;
-    margin: 0 auto;
+    .page-template-template-sponsor & {
+      max-width: 80%;
+      margin: 0 auto;
 
-    .logos_wrapper {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: 60px 80px;
-
-      @include media_Mobile() {
-        gap: 40px 50px;
-      }
-
-      @include media_Phone() {
-        max-width: 90%;
-      }
-
-      .official_sponsor_logo {
-        max-width: calc(100% / 4 - 240px / 4);
+      .logos_wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 60px 80px;
 
         @include media_Mobile() {
-          max-width: calc(100% / 4 - 150px / 4);
+          gap: 40px 50px;
         }
 
         @include media_Phone() {
-          max-width: calc(100% / 2 - 50px / 2);
+          max-width: 90%;
         }
 
-        img {
-          width: 100%;
-          height: auto;
+        .official_sponsor_logo {
+          max-width: calc(100% / 4 - 240px / 4);
+
+          @include media_Mobile() {
+            max-width: calc(100% / 4 - 150px / 4);
+          }
+
+          @include media_Phone() {
+            max-width: calc(100% / 2 - 50px / 2);
+          }
+
+          img {
+            width: 100%;
+            height: auto;
+          }
+        }
+      }
+    }
+    .swiper-wrapper {
+      transition-timing-function: linear;
+
+      .swiper-slide {
+        height: 200px;
+
+        @include media_Phone() {
+          height: 150px;
+        }
+
+        .official_sponsor_logo {
+          img {
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+            object-position: center;
+          }
         }
       }
     }
   }
 
   #official_partners {
-    max-width: 80%;
-    margin: 0 auto;
+    .page-template-template-sponsor & {
+      max-width: 80%;
+      margin: 0 auto;
 
-    .logos_wrapper {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: 60px;
-
-      @include media_Mobile() {
-        gap: 40px;
-      }
-
-      .official_partner_logo {
-        max-width: calc(100% / 5 - 240px / 5);
+      .logos_wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 60px;
 
         @include media_Mobile() {
-          max-width: calc(100% / 5 - 160px / 5);
+          gap: 40px;
         }
+
+        .official_partner_logo {
+          max-width: calc(100% / 5 - 240px / 5);
+
+          @include media_Mobile() {
+            max-width: calc(100% / 5 - 160px / 5);
+          }
+
+          @include media_Phone() {
+            max-width: calc(100% / 3 - 80px / 3);
+          }
+
+          img {
+            width: 100%;
+            height: auto;
+          }
+        }
+      }
+    }
+
+    .swiper-wrapper {
+      transition-timing-function: linear;
+
+      .swiper-slide {
+        height: 100px;
 
         @include media_Phone() {
-          max-width: calc(100% / 3 - 80px / 3);
+          height: 70px;
         }
 
-        img {
-          width: 100%;
-          height: auto;
+        .official_partner_logo {
+          img {
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+            object-position: center;
+          }
         }
       }
     }

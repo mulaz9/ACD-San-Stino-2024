@@ -105,8 +105,14 @@ const nav = document.querySelector("#header");
 const slideshow = document.querySelector("#main_slideshow");
 if (slideshow) {
   const slideshowHeight = slideshow.offsetHeight;
+  const headrHeight = nav.offsetHeight;
   window.addEventListener("scroll", function () {
-    if (this.window.scrollY > slideshowHeight) {
+    if (this.window.scrollY > 200) {
+      nav.style.position = "fixed";
+    } else {
+      nav.style.position = "sticky";
+    }
+    if (this.window.scrollY > slideshowHeight - headrHeight) {
       nav.classList.add("fixed");
     } else {
       nav.classList.remove("fixed");
@@ -114,6 +120,11 @@ if (slideshow) {
   });
 } else {
   window.addEventListener("scroll", function () {
+    if (this.window.scrollY > 200) {
+      nav.style.position = "fixed";
+    } else {
+      nav.style.position = "sticky";
+    }
     if (this.window.scrollY > 500) {
       nav.classList.add("fixed");
     } else {

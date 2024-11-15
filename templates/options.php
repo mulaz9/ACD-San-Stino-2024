@@ -11,7 +11,7 @@ function site_options_add_local_field_groups()
                 'name' => 'main_logo_tab',
                 'label' => 'Main Logo',
                 'type' => 'tab',
-                'placement' => 'top'
+                'placement' => 'left'
             ),
             array(
                 'key' => 'main_logo',
@@ -23,11 +23,24 @@ function site_options_add_local_field_groups()
                 ]
             ),
             array(
+                'key' => 'main_logo_height',
+                'name' => 'main_logo_height',
+                'label' => 'Dimensione del logo',
+                'type' => 'range',
+                'default_value' => '60',
+                'min' => '40',
+                'max' => '100',
+                'step' => '5',
+                'wrapper' => [
+                    'width' => '50%'
+                ]
+            ),
+            array(
                 'key' => 'sponsor_tab',
                 'name' => 'sponsor_tab',
                 'label' => 'Sponsor',
                 'type' => 'tab',
-                'placement' => 'top'
+                'placement' => 'left'
             ),
             array(
                 'key' => 'main_sponsor_group',

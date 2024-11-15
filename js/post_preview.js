@@ -2,7 +2,7 @@ const slidesNum = document.querySelectorAll(
   "#post_preview .swiper-slide"
 ).length;
 
-if (slidesCount > 1 && hasAutoplay) {
+if (slidesNum > 1 && hasAutoplay) {
   const swiper = new Swiper("#post_preview .swiper", {
     // Optional parameters
     direction: "horizontal",

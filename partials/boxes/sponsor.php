@@ -17,8 +17,6 @@ $officialPartenersFields = get_field('official_partners_group', 'options');
 $officialPartenersTitle = !empty($officialPartenersFields['official_parteners_section_title']) ? $officialPartenersFields['official_parteners_section_title'] : 'Official Parteners';
 $officialPartenersList = $officialPartenersFields['official_parteners'];
 
-// var_dump(!empty($mainSponsorFields));
-
 if (!empty($mainSponsorLogoURL || $officialSponsorList || $officialPartenersList)) { ?>
     <section id="sponsor" class="section">
         <div class="container">
@@ -31,21 +29,51 @@ if (!empty($mainSponsorLogoURL || $officialSponsorList || $officialPartenersList
             <?php if (!empty($officialSponsorList)) { ?>
                 <div id="official_sponsor" class="sponsor_section">
                     <h1 class="section_title sponsor_title"><?php echo $officialSponsorTitle; ?></h1>
-                    <div class="logos_wrapper">
-                        <?php foreach ($officialSponsorList as $officialSponsor) { ?>
-                            <a class="official_sponsor_logo" href="<?php echo esc_url($officialSponsor['official_sponsor_link']); ?>" target="_blank"><img src="<?php echo $officialSponsor['official_sponsor_logo']['url']; ?>" alt=""></a>
-                        <?php } ?>
-                    </div>
+                    <?php if (!is_page_template('template-sponsor.php')) { ?>
+                        <!-- Slider main container -->
+                        <div class="swiper">
+                            <!-- Additional required wrapper -->
+                            <div class="logos_wrapper swiper-wrapper">
+                                <!-- Slides -->
+                                <?php foreach ($officialSponsorList as $officialSponsor) { ?>
+                                    <div class="swiper-slide">
+                                        <a class="official_sponsor_logo" href="<?php echo esc_url($officialSponsor['official_sponsor_link']); ?>" target="_blank"><img src="<?php echo $officialSponsor['official_sponsor_logo']['url']; ?>" alt=""></a>
+                                    </div>
+                                <?php } ?>
+                            </div>
+                        </div>
+                    <?php } else { ?>
+                        <div class="logos_wrapper">
+                            <?php foreach ($officialSponsorList as $officialSponsor) { ?>
+                                <a class="official_sponsor_logo" href="<?php echo esc_url($officialSponsor['official_sponsor_link']); ?>" target="_blank"><img src="<?php echo $officialSponsor['official_sponsor_logo']['url']; ?>" alt=""></a>
+                            <?php } ?>
+                        </div>
+                    <?php } ?>
                 </div>
             <?php } ?>
             <?php if (!empty($officialPartenersList)) { ?>
                 <div id="official_partners" class="sponsor_section">
                     <h1 class="section_title sponsor_title"><?php echo $officialPartenersTitle; ?></h1>
-                    <div class="logos_wrapper">
-                        <?php foreach ($officialPartenersList as $officialPartner) { ?>
-                            <a class="official_partner_logo" href="<?php echo esc_url($officialPartner['official_partner_link']); ?>" target="_blank"><img src="<?php echo $officialPartner['official_partner_logo']['url']; ?>" alt=""></a>
-                        <?php } ?>
-                    </div>
+                    <?php if (!is_page_template('template-sponsor.php')) { ?>
+                        <!-- Slider main container -->
+                        <div class="swiper">
+                            <!-- Additional required wrapper -->
+                            <div class="logos_wrapper swiper-wrapper">
+                                <!-- Slides -->
+                                <?php foreach ($officialPartenersList as $officialPartner) { ?>
+                                    <div class="swiper-slide">
+                                        <a class="official_partner_logo" href="<?php echo esc_url($officialPartner['official_partner_link']); ?>" target="_blank"><img src="<?php echo $officialPartner['official_partner_logo']['url']; ?>" alt=""></a>
+                                    </div>
+                                <?php } ?>
+                            </div>
+                        </div>
+                    <?php } else { ?>
+                        <div class="logos_wrapper">
+                            <?php foreach ($officialPartenersList as $officialPartner) { ?>
+                                <a class="official_partner_logo" href="<?php echo esc_url($officialPartner['official_partner_link']); ?>" target="_blank"><img src="<?php echo $officialPartner['official_partner_logo']['url']; ?>" alt=""></a>
+                            <?php } ?>
+                        </div>
+                    <?php } ?>
                 </div>
             <?php } ?>
         </div>

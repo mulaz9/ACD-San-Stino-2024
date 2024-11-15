@@ -33,10 +33,10 @@
     .header_wrapper {
       .header_top {
         @include transition();
-        .social {
-          @include media_AllDesktop() {
-            display: none;
-          }
+        @include media_AllDesktop() {
+          height: 0;
+          visibility: collapse;
+          opacity: 0;
         }
       }
 
@@ -141,7 +141,6 @@
 
         img {
           width: auto;
-          height: 120px;
           @include transition();
 
           @include media_Mobile() {

@@ -359,8 +359,10 @@ p {
 }
 
 @media (min-width: 1024px) {
-  #header.fixed .header_wrapper .header_top .social {
-    display: none;
+  #header.fixed .header_wrapper .header_top {
+    height: 0;
+    visibility: collapse;
+    opacity: 0;
   }
 }
 
@@ -483,7 +485,6 @@ p {
 
 #header .header_wrapper .header_bottom #logo img {
   width: auto;
-  height: 120px;
   transition: all 0.3s ease-in-out;
 }
 
@@ -1496,12 +1497,12 @@ p {
   object-position: center;
 }
 
-#sponsor #official_sponsor {
+.page-template-template-sponsor #sponsor #official_sponsor {
   max-width: 80%;
   margin: 0 auto;
 }
 
-#sponsor #official_sponsor .logos_wrapper {
+.page-template-template-sponsor #sponsor #official_sponsor .logos_wrapper {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -1510,44 +1511,65 @@ p {
 }
 
 @media (max-width: 1023px) {
-  #sponsor #official_sponsor .logos_wrapper {
+  .page-template-template-sponsor #sponsor #official_sponsor .logos_wrapper {
     gap: 40px 50px;
   }
 }
 
 @media (max-width: 767px) {
-  #sponsor #official_sponsor .logos_wrapper {
+  .page-template-template-sponsor #sponsor #official_sponsor .logos_wrapper {
     max-width: 90%;
   }
 }
 
-#sponsor #official_sponsor .logos_wrapper .official_sponsor_logo {
+.page-template-template-sponsor #sponsor #official_sponsor .logos_wrapper .official_sponsor_logo {
   max-width: calc(25% - 60px);
 }
 
 @media (max-width: 1023px) {
-  #sponsor #official_sponsor .logos_wrapper .official_sponsor_logo {
+  .page-template-template-sponsor #sponsor #official_sponsor .logos_wrapper .official_sponsor_logo {
     max-width: calc(25% - 37.5px);
   }
 }
 
 @media (max-width: 767px) {
-  #sponsor #official_sponsor .logos_wrapper .official_sponsor_logo {
+  .page-template-template-sponsor #sponsor #official_sponsor .logos_wrapper .official_sponsor_logo {
     max-width: calc(50% - 25px);
   }
 }
 
-#sponsor #official_sponsor .logos_wrapper .official_sponsor_logo img {
+.page-template-template-sponsor #sponsor #official_sponsor .logos_wrapper .official_sponsor_logo img {
   width: 100%;
   height: auto;
 }
 
-#sponsor #official_partners {
+#sponsor #official_sponsor .swiper-wrapper {
+  transition-timing-function: linear;
+}
+
+#sponsor #official_sponsor .swiper-wrapper .swiper-slide {
+  height: 200px;
+}
+
+@media (max-width: 767px) {
+  #sponsor #official_sponsor .swiper-wrapper .swiper-slide {
+    height: 150px;
+  }
+}
+
+#sponsor #official_sponsor .swiper-wrapper .swiper-slide .official_sponsor_logo img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.page-template-template-sponsor #sponsor #official_partners {
   max-width: 80%;
   margin: 0 auto;
 }
 
-#sponsor #official_partners .logos_wrapper {
+.page-template-template-sponsor #sponsor #official_partners .logos_wrapper {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -1556,30 +1578,51 @@ p {
 }
 
 @media (max-width: 1023px) {
-  #sponsor #official_partners .logos_wrapper {
+  .page-template-template-sponsor #sponsor #official_partners .logos_wrapper {
     gap: 40px;
   }
 }
 
-#sponsor #official_partners .logos_wrapper .official_partner_logo {
+.page-template-template-sponsor #sponsor #official_partners .logos_wrapper .official_partner_logo {
   max-width: calc(20% - 48px);
 }
 
 @media (max-width: 1023px) {
-  #sponsor #official_partners .logos_wrapper .official_partner_logo {
+  .page-template-template-sponsor #sponsor #official_partners .logos_wrapper .official_partner_logo {
     max-width: calc(20% - 32px);
   }
 }
 
 @media (max-width: 767px) {
-  #sponsor #official_partners .logos_wrapper .official_partner_logo {
+  .page-template-template-sponsor #sponsor #official_partners .logos_wrapper .official_partner_logo {
     max-width: calc(33.3333333333% - 26.6666666667px);
   }
 }
 
-#sponsor #official_partners .logos_wrapper .official_partner_logo img {
+.page-template-template-sponsor #sponsor #official_partners .logos_wrapper .official_partner_logo img {
   width: 100%;
   height: auto;
+}
+
+#sponsor #official_partners .swiper-wrapper {
+  transition-timing-function: linear;
+}
+
+#sponsor #official_partners .swiper-wrapper .swiper-slide {
+  height: 100px;
+}
+
+@media (max-width: 767px) {
+  #sponsor #official_partners .swiper-wrapper .swiper-slide {
+    height: 70px;
+  }
+}
+
+#sponsor #official_partners .swiper-wrapper .swiper-slide .official_partner_logo img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  object-position: center;
 }
 
 #footer {

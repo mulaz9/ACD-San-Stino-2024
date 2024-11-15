@@ -22,8 +22,8 @@ add_action('acf/init', 'addSiteOptions');
 
 function my_acf_add_local_field_groups()
 {
-    //////////////// General Fileds ///////////////////////
 
+    ///////////////////////// Main Content /////////////////////////
 
     acf_add_local_field_group(array(
         'key' => 'group_main_content',
@@ -34,7 +34,7 @@ function my_acf_add_local_field_groups()
                 'name' => 'main_content_tab',
                 'label' => 'Main Content',
                 'type' => 'tab',
-                'placement' => 'top',
+                'placement' => 'left',
             ),
             array(
                 'key' => 'main_content_hide_title',
@@ -223,20 +223,6 @@ function my_acf_add_local_field_groups()
                 ),
             ),
         ),
-        'location' => array(
-            array(
-                array(
-                    'param' => 'post_type',
-                    'operator' => '==',
-                    'value' => 'page',
-                ),
-                array(
-                    'param' => 'page_type',
-                    'operator' => '!=',
-                    'value' => 'front_page',
-                ),
-            ),
-        ),
         'menu_order' => 0,
         'position' => 'normal',
         'style' => 'default',
@@ -244,6 +230,8 @@ function my_acf_add_local_field_groups()
         'instruction_placement' => 'label',
         'hide_on_screen' => '',
     ));
+
+    ///////////////////////// Slideshow /////////////////////////
 
     acf_add_local_field_group(array(
         'key' => 'group_slideshow',
@@ -254,7 +242,7 @@ function my_acf_add_local_field_groups()
                 'name' => 'slideshow_tab',
                 'label' => 'Slideshow',
                 'type' => 'tab',
-                'placement' => 'top',
+                'placement' => 'left',
             ),
             array(
                 'key' => 'slideshow_gallery',
@@ -299,6 +287,207 @@ function my_acf_add_local_field_groups()
         'hide_on_screen' => '',
     ));
 
+    ///////////////////////// Giocatori e staff /////////////////////////
+    acf_add_local_field_group(array(
+        'key' => 'group_giocatori',
+        'title' => 'Giocatori e Staff',
+        'fields' => array(
+            array(
+                'key' => 'giocatori_tab',
+                'name' => 'giocatori_tab',
+                'label' => 'Giocatori e Staff',
+                'type' => 'tab',
+                'placement' => 'left',
+            ),
+            array(
+                'key' => 'componenti_tabs_goup',
+                'name' => 'componenti_tabs_goup',
+                'type' => 'group',
+                'sub_fields' => array(
+                    array(
+                        'key' => 'portieri_tab',
+                        'name' => 'portieri_tab',
+                        'label' => 'Portieri',
+                        'type' => 'tab',
+                        'placement' => 'top',
+                    ),
+                    array(
+                        'key' => 'portieri',
+                        'name' => 'portieri',
+                        'type' => 'repeater',
+                        'sub_fields' => array(
+                            array(
+                                'key' => 'portieri_foto',
+                                'name' => 'portieri_foto',
+                                'label' => 'Foto',
+                                'type' => 'image',
+                            ),
+                            array(
+                                'key' => 'portieri_nome',
+                                'name' => 'portieri_nome',
+                                'label' => 'Nome e Cognome',
+                                'type' => 'text',
+                            ),
+                            array(
+                                'key' => 'portieri_data_nascita',
+                                'name' => 'portieri_data_nascita',
+                                'label' => 'Data di Nascita',
+                                'type' => 'date_picker',
+                                'display_format' => 'd/m/Y',
+                                'return_format' => 'd/m/Y',
+                                'first_day' => 1
+                            ),
+                        ),
+                    ),
+                    array(
+                        'key' => 'difensori_tab',
+                        'name' => 'difensori_tab',
+                        'label' => 'Difensori',
+                        'type' => 'tab',
+                        'placement' => 'top',
+                    ),
+                    array(
+                        'key' => 'difensori',
+                        'name' => 'difensori',
+                        'type' => 'repeater',
+                        'sub_fields' => array(
+                            array(
+                                'key' => 'difensori_foto',
+                                'name' => 'difensori_foto',
+                                'label' => 'Foto',
+                                'type' => 'image',
+                            ),
+                            array(
+                                'key' => 'difensori_nome',
+                                'name' => 'difensori_nome',
+                                'label' => 'Nome e Cognome',
+                                'type' => 'text',
+                            ),
+                            array(
+                                'key' => 'difensori_data_nascita',
+                                'name' => 'difensori_data_nascita',
+                                'label' => 'Data di Nascita',
+                                'type' => 'date_picker',
+                                'display_format' => 'd/m/Y',
+                                'return_format' => 'd/m/Y',
+                                'first_day' => 1
+                            ),
+                        ),
+                    ),
+                    array(
+                        'key' => 'centrocampisti_tab',
+                        'name' => 'centrocampisti_tab',
+                        'label' => 'Centrocampisti',
+                        'type' => 'tab',
+                        'placement' => 'top',
+                    ),
+                    array(
+                        'key' => 'centrocampisti',
+                        'name' => 'centrocampisti',
+                        'type' => 'repeater',
+                        'sub_fields' => array(
+                            array(
+                                'key' => 'centrocampisti_foto',
+                                'name' => 'centrocampisti_foto',
+                                'label' => 'Foto',
+                                'type' => 'image',
+                            ),
+                            array(
+                                'key' => 'centrocampisti_nome',
+                                'name' => 'centrocampisti_nome',
+                                'label' => 'Nome e Cognome',
+                                'type' => 'text',
+                            ),
+                            array(
+                                'key' => 'centrocampisti_data_nascita',
+                                'name' => 'centrocampisti_data_nascita',
+                                'label' => 'Data di Nascita',
+                                'type' => 'date_picker',
+                                'display_format' => 'd/m/Y',
+                                'return_format' => 'd/m/Y',
+                                'first_day' => 1
+                            ),
+                        ),
+                    ),
+                    array(
+                        'key' => 'attaccanti_tab',
+                        'name' => 'attaccanti_tab',
+                        'label' => 'Attaccanti',
+                        'type' => 'tab',
+                        'placement' => 'top',
+                    ),
+                    array(
+                        'key' => 'attaccanti',
+                        'name' => 'attaccanti',
+                        'type' => 'repeater',
+                        'sub_fields' => array(
+                            array(
+                                'key' => 'attaccanti_foto',
+                                'name' => 'attaccanti_foto',
+                                'label' => 'Foto',
+                                'type' => 'image',
+                            ),
+                            array(
+                                'key' => 'attaccanti_nome',
+                                'name' => 'attaccanti_nome',
+                                'label' => 'Nome e Cognome',
+                                'type' => 'text',
+                            ),
+                            array(
+                                'key' => 'attaccanti_data_nascita',
+                                'name' => 'attaccanti_data_nascita',
+                                'label' => 'Data di Nascita',
+                                'type' => 'date_picker',
+                                'display_format' => 'd/m/Y',
+                                'return_format' => 'd/m/Y',
+                                'first_day' => 1
+                            ),
+                        ),
+                    ),
+                    array(
+                        'key' => 'staff_tab',
+                        'name' => 'staff_tab',
+                        'label' => 'Staff Tecnico',
+                        'type' => 'tab',
+                        'placement' => 'top',
+                    ),
+                    array(
+                        'key' => 'staff',
+                        'name' => 'staff',
+                        'type' => 'repeater',
+                        'sub_fields' => array(
+                            array(
+                                'key' => 'staff_foto',
+                                'name' => 'staff_foto',
+                                'label' => 'Foto',
+                                'type' => 'image',
+                            ),
+                            array(
+                                'key' => 'staff_nome',
+                                'name' => 'staff_nome',
+                                'label' => 'Nome e Cognome',
+                                'type' => 'text',
+                            ),
+                            array(
+                                'key' => 'staff_ruolo',
+                                'name' => 'staff_ruolo',
+                                'label' => 'Ruolo',
+                                'type' => 'text',
+                            ),
+                        ),
+                    ),
+                )
+            ),
+        ),
+        'menu_order' => 0,
+        'position' => 'normal',
+        'style' => 'default',
+        'label_placement' => 'top',
+        'instruction_placement' => 'label',
+        'hide_on_screen' => '',
+    ));
+
+    ///////////////////////// Files Upload /////////////////////////
 
     acf_add_local_field_group(array(
         'key' => 'group_files',
@@ -309,7 +498,7 @@ function my_acf_add_local_field_groups()
                 'name' => 'files_tab',
                 'label' => 'Files Upload',
                 'type' => 'tab',
-                'placement' => 'top',
+                'placement' => 'left',
             ),
             array(
                 'key' => 'files_section_title',
@@ -372,6 +561,7 @@ function my_acf_add_local_field_groups()
         'hide_on_screen' => '',
     ));
 
+    ///////////////////////// Post Preview /////////////////////////
     acf_add_local_field_group(array(
         'key' => 'group_post_preview',
         'title' => 'Post Preview Fields',
@@ -381,7 +571,7 @@ function my_acf_add_local_field_groups()
                 'name' => 'post_preview_tab',
                 'label' => 'Post Preview',
                 'type' => 'tab',
-                'placement' => 'top',
+                'placement' => 'left',
             ),
             array(
                 'key' => 'post_preview_enable',
@@ -391,7 +581,7 @@ function my_acf_add_local_field_groups()
                 'ui' => 1,
                 'ui_on_text' => 'Si',
                 'ui_off_text' => 'No',
-                'default_value' => 1,
+                'default_value' => 0,
                 'wrapper' => [
                     'width' => '20%'
                 ]
@@ -550,84 +740,7 @@ function my_acf_add_local_field_groups()
         'hide_on_screen' => '',
     ));
 
-
-    //////////////// Homepage Fileds ///////////////////////
-
-    acf_add_local_field_group(array(
-        'key' => 'group_homepage',
-        'title' => 'Hompage Fields',
-        'fields' => array(
-            array(
-                'key' => 'field_group_homepage_fields',
-                'name' => 'acf_group_homepage_fields',
-                'type' => 'clone',
-                'clone' => array(
-                    1 => 'group_slideshow',
-                    2 => 'group_main_content',
-                    3 => 'group_post_preview',
-                    4 => 'group_files',
-                ),
-                'display' => 'group',
-                'layout' => 'block',
-            ),
-
-        ),
-        'location' => array(
-            array(
-                array(
-                    'param' => 'page_type',
-                    'operator' => '==',
-                    'value' => 'front_page'
-                )
-            )
-        ),
-        'menu_order' => 0,
-        'position' => 'normal',
-        'style' => 'default',
-        'label_placement' => 'top',
-        'instruction_placement' => 'label',
-        'hide_on_screen' => '',
-    ));
-
-
-
-    //////////////// Template Squadra Fileds ///////////////////////
-
-    acf_add_local_field_group(array(
-        'key' => 'group_squadra',
-        'title' => 'Informazioni Principali',
-        'fields' => array(
-            array(
-                'key' => 'girone_squadra',
-                'name' => 'girone_squadra',
-                'label' => 'Girone Squadra',
-                'type' => 'text',
-                'instructions' => 'Inserire il girone della squadra(es: Promozione - Girone D)',
-            ),
-            array(
-                'key' => 'nome_coppa',
-                'name' => 'nome_coppa',
-                'label' => 'Nome della Coppa',
-                'type' => 'text',
-                'instructions' => 'Inserire il nome della coppa regionale(es: Trofeo Regione Veneto)',
-            ),
-        ),
-        'location' => array(
-            array(
-                array(
-                    'param' => 'page_template',
-                    'operator' => '==',
-                    'value' => 'template-squadra.php',
-                ),
-            )
-        ),
-        'menu_order' => 0,
-        'position' => 'side',
-        'style' => 'default',
-        'label_placement' => 'top',
-        'instruction_placement' => 'label',
-        'hide_on_screen' => '',
-    ));
+    ///////////////////////// Classifiche Campionato /////////////////////////
 
     acf_add_local_field_group(array(
         'key' => 'group_classifiche_campionato',
@@ -783,6 +896,8 @@ function my_acf_add_local_field_groups()
         'hide_on_screen' => '',
         'layout' => 'table',
     ));
+
+    ///////////////////////// Classifiche Coppa /////////////////////////
 
     acf_add_local_field_group(array(
         'key' => 'group_classifiche_coppa',

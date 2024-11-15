@@ -15,6 +15,7 @@ function enqueueAssets()
     wp_register_script('main-js', get_template_directory_uri() . '/js/main.min.js', array('jquery'), '1.0.0', true);
     wp_register_script('slideshow-js', get_template_directory_uri() . '/js/slideshow.min.js', array('swiper-js'), '1.0.0', true);
     wp_register_script('post_preview-js', get_template_directory_uri() . '/js/post_preview.min.js', array('swiper-js'), '1.0.0', true);
+    wp_register_script('sponsor-js', get_template_directory_uri() . '/js/sponsor.min.js', array('swiper-js'), '1.0.0', true);
 
     wp_enqueue_script('font-awesome');
     wp_enqueue_script('swiper-js');
@@ -43,6 +44,14 @@ function blocksAssets()
 
     if ($layout == 'carousel') {
         wp_enqueue_script('post_preview-js');
+    }
+
+    // Sponsor
+    $officialSponsorFields = get_field('official_sponsor_group', 'options');
+    $officialSponsorList = $officialSponsorFields['official_sponsor'];
+
+    if (!is_page_template('template-sponsor.php') && is_array($officialSponsorList) && count($officialSponsorList) > 0) {
+        wp_enqueue_script('sponsor-js');
     }
 }
 

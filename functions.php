@@ -17,6 +17,7 @@ const INCLUDES = TEMP_DIR . '/includes/';
 
 
 require_once(TEMPLATES . 'fields.php');
+require_once(TEMPLATES . 'acf-layout.php');
 require_once(TEMPLATES . 'categories.php');
 require_once(TEMPLATES . 'options.php');
 require_once(TEMPLATES . 'assets.php');

@@ -1,6 +1,7 @@
 <?php
 
 $logo = get_field('main_logo', 'options');
+$logoHeight = get_field('main_logo_height', 'options') * 2;
 $logoURL = $logo['url'];
 $logoALT = $logo['alt'];
 
@@ -17,7 +18,7 @@ $logoALT = $logo['alt'];
         </div>
         <div class="header_bottom">
             <a href="<?php echo get_home_url(); ?>" id="logo" title="Torna all'homepage">
-                <img src="<?php echo $logoURL; ?>" alt="<?php echo $logoALT; ?>" height="80" width="60">
+                <img src="<?php echo $logoURL; ?>" alt="<?php echo $logoALT; ?>" height="<?php echo $logoHeight; ?>" width="60">
             </a>
             <div id="hamburger_menu">
                 <a href="javascript:;" id="open_menu" title="Apri sidebar menu">
