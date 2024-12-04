@@ -14,6 +14,7 @@ function enqueueAssets()
     wp_register_script('swiper-js', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', array('jquery'), '11.1.9', true);
     wp_register_script('main-js', get_template_directory_uri() . '/js/main.min.js', array('jquery'), '1.0.0', true);
     wp_register_script('slideshow-js', get_template_directory_uri() . '/js/slideshow.min.js', array('swiper-js'), '1.0.0', true);
+    wp_register_script('anchors-js', get_template_directory_uri() . '/js/anchors.min.js', array(), '1.0.0', true);
     wp_register_script('post_preview-js', get_template_directory_uri() . '/js/post_preview.min.js', array('swiper-js'), '1.0.0', true);
     wp_register_script('sponsor-js', get_template_directory_uri() . '/js/sponsor.min.js', array('swiper-js'), '1.0.0', true);
 
@@ -52,6 +53,10 @@ function blocksAssets()
 
     if (!is_page_template('template-sponsor.php') && is_array($officialSponsorList) && count($officialSponsorList) > 0) {
         wp_enqueue_script('sponsor-js');
+    }
+
+    if (is_page_template('template-squadra.php')) {
+        wp_enqueue_script('anchors-js');
     }
 }
 

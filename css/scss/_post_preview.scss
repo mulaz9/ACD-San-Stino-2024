@@ -8,12 +8,18 @@
   }
 
   .view_all {
-    color: $medium-color;
-    text-shadow: none;
-    vertical-align: middle;
-    font-size: $fontSize;
-    text-transform: lowercase;
-    font-weight: lighter;
+    a {
+      color: $medium-color;
+      text-shadow: none;
+      vertical-align: middle;
+      font-size: $fontSize;
+      text-transform: lowercase;
+      font-weight: lighter;
+
+      &:hover {
+        color: $hoverColor;
+      }
+    }
   }
 
   .item,
@@ -24,13 +30,9 @@
     background-color: $bodyBg;
 
     .thumb {
-      aspect-ratio: 16/10;
+      aspect-ratio: 5/4;
       overflow: hidden;
       position: relative;
-
-      @include media_Phone {
-        aspect-ratio: 1/0.8;
-      }
 
       img {
         @include objectfit_image();

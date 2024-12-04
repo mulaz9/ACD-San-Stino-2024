@@ -1,0 +1,95 @@
+#componenti_squadra {
+  padding-bottom: 100px;
+
+  @include media_Mobile() {
+    padding-bottom: 80px;
+  }
+
+  .subsection {
+    &:not(:last-child) {
+      padding-bottom: 100px;
+
+      @include media_Mobile() {
+        padding-bottom: 80px;
+      }
+    }
+
+    .section_title {
+      text-transform: capitalize;
+    }
+
+    .item_wrapper {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 60px 40px;
+
+      @include media_Mobile() {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @include media_Phone() {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .item {
+        border-radius: $radius;
+        overflow: hidden;
+        box-shadow: $giocatoriShadow;
+        border-left: 1px solid $primary-color;
+
+        .thumb {
+          aspect-ratio: 1/1;
+          background-color: $primary-max-opaque;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          img {
+            @include objectfit_image;
+            object-position: top;
+
+            &.placeholder {
+              width: 50%;
+              height: auto;
+              margin: auto;
+              object-fit: contain;
+              filter: drop-shadow(2px 4px 6px black);
+            }
+          }
+        }
+
+        .text_wrap {
+          padding: 30px 25px;
+          display: flex;
+          flex-direction: column;
+          justify-content: stretch;
+          align-items: center;
+
+          .name {
+            font-family: $secondFont;
+            font-size: $fontSizeMedium;
+            font-weight: bold;
+            margin-bottom: 15px;
+            line-height: $lineHeightTitle;
+
+            @include media_Mobile() {
+              font-size: $fontSize;
+            }
+          }
+
+          .role {
+            text-transform: uppercase;
+            font-size: $fontSizeSmall;
+            margin-bottom: 10px;
+            color: $secondary-color;
+          }
+
+          .birthdate {
+            font-style: italic;
+          }
+        }
+      }
+    }
+  }
+}

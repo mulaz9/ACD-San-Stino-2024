@@ -31,6 +31,7 @@
     height: $headerHeightFixed;
 
     .header_wrapper {
+      @include header_container();
       .header_top {
         @include transition();
         @include media_AllDesktop() {

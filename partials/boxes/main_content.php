@@ -22,7 +22,7 @@ $btns = get_field('main_content_btns');
             <?php } ?>
             <?php if (!empty($sottotitolo) && !is_page_template('template-squadra.php')) { ?>
                 <div class="the_subtitle"><?php echo $sottotitolo; ?></div>
-            <?php } else { ?>
+            <?php } elseif (!empty($girone) && is_page_template('template-squadra.php')) { ?>
                 <div class="the_subtitle girone"><?php echo $girone; ?></div>
             <?php } ?>
             <?php if (!empty($content)) { ?>

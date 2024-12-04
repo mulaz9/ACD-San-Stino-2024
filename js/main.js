@@ -103,6 +103,7 @@ if (isMobile) {
 
 const nav = document.querySelector("#header");
 const slideshow = document.querySelector("#main_slideshow");
+const btt = document.querySelector(".btt");
 if (slideshow) {
   const slideshowHeight = slideshow.offsetHeight;
   const headrHeight = nav.offsetHeight;
@@ -114,8 +115,10 @@ if (slideshow) {
     }
     if (this.window.scrollY > slideshowHeight - headrHeight) {
       nav.classList.add("fixed");
+      btt.style.display = "block";
     } else {
       nav.classList.remove("fixed");
+      btt.style.display = "none";
     }
   });
 } else {
@@ -127,8 +130,19 @@ if (slideshow) {
     }
     if (this.window.scrollY > 500) {
       nav.classList.add("fixed");
+      btt.style.display = "block";
     } else {
       nav.classList.remove("fixed");
+      btt.style.display = "none";
     }
   });
 }
+
+// Back to top
+function backToTop() {
+  btt.addEventListener("click", function () {
+    window.scrollTo(0, 0);
+  });
+}
+
+backToTop();

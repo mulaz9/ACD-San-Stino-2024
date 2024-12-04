@@ -1,5 +1,5 @@
 #sponsor {
-  .sponsor_section:not(:last-child) {
+  .sponsor_section {
     padding-bottom: 150px;
     @include media_Mobile() {
       padding-bottom: 80px;
@@ -7,6 +7,16 @@
     .sponsor_title {
       @include media_AllDesktop() {
         margin-bottom: 60px;
+      }
+    }
+
+    .home & {
+      &:last-child {
+        padding-bottom: 80px;
+
+        @include media_Mobile() {
+          padding-bottom: 40px;
+        }
       }
     }
   }

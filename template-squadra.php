@@ -31,6 +31,9 @@ $isPrimaSquadraPage = has_term('prima-squadra', 'page-category', get_the_ID());
 
 get_header();
 get_template_part('partials/boxes/main_content');
+the_breadcrumb();
+get_template_part('partials/boxes/anchors');
+get_template_part('partials/boxes/giocatori');
 ?>
 
 <?php if (!empty($prossima_partita)) { ?>

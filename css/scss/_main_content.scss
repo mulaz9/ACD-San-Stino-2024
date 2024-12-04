@@ -1,4 +1,9 @@
 #main_content {
+  & + #breadcrumbs {
+    padding-top: 0;
+    margin-top: -30px;
+  }
+
   @include media_AllDesktop() {
     &.image_left,
     &.image_right {

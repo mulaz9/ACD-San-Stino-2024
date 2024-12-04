@@ -36,6 +36,60 @@ function site_options_add_local_field_groups()
                 ]
             ),
             array(
+                'key' => 'contacts_tab',
+                'name' => 'contacts_tab',
+                'label' => 'Contatti',
+                'type' => 'tab',
+                'placement' => 'left'
+            ),
+            array(
+                'key' => 'address_sede',
+                'name' => 'field_address_sede',
+                'label' => 'Indirizzo Sede',
+                'type' => 'text',
+            ),
+            array(
+                'key' => 'stadio',
+                'name' => 'field_stadio',
+                'label' => 'Stadio',
+                'instructiuons' => 'Inserire il nome e l\'indirizzo dello stadio',
+                'type' => 'text',
+            ),
+            array(
+                'key' => 'altri_campi',
+                'name' => 'field_altri_campi',
+                'label' => 'Altri Campi di Gioco',
+                'type' => 'repeater',
+                'button_label' => 'Aggiungi Campo',
+                'sub_fields' => array(
+                    array(
+                        'key' => 'altro_campo',
+                        'name' => 'field_altro_campo',
+                        'label' => 'Altro Campo di Gioco',
+                        'instructiuons' => 'Inserire il nome e l\'indirizzo dello stadio',
+                        'type' => 'text',
+                    )
+                )
+            ),
+            array(
+                'key' => 'phone',
+                'name' => 'field_phone',
+                'label' => 'Telefono',
+                'type' => 'text',
+            ),
+            array(
+                'key' => 'fax',
+                'name' => 'field_fax',
+                'label' => 'Fax',
+                'type' => 'text',
+            ),
+            array(
+                'key' => 'email',
+                'name' => 'field_email',
+                'label' => 'Email',
+                'type' => 'email',
+            ),
+            array(
                 'key' => 'sponsor_tab',
                 'name' => 'sponsor_tab',
                 'label' => 'Sponsor',

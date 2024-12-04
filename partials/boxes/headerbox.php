@@ -8,7 +8,7 @@ $logoALT = $logo['alt'];
 ?>
 
 
-<header id="header" class="container">
+<header id="header">
     <nav class="header_wrapper">
         <div class="header_top">
             <div class="social">

@@ -22,6 +22,7 @@ require_once(TEMPLATES . 'categories.php');
 require_once(TEMPLATES . 'options.php');
 require_once(TEMPLATES . 'assets.php');
 require_once(INCLUDES . 'data_handler.php');
+require_once(INCLUDES . 'breadcrumbs.php');
 
 
 register_nav_menus(array(
@@ -54,4 +55,29 @@ function limit_words($string, $word_limit)
         $return .= '...';
     }
     return $return;
+}
+
+// Function to safely count array or countable objects
+function safeCount($variable)
+{
+    // Check if the variable is null
+    if ($variable === null) {
+        return 0;
+    }
+
+    // Check if it's an array or Countable object
+    if (is_array($variable) || $variable instanceof Countable) {
+        return count($variable);
+    }
+
+    // If it's not an array or Countable, return 0
+    return 0;
+}
+
+function replaceLastLetter($string, $replacement)
+{
+    if (empty($string)) {
+        return $string;
+    }
+    return substr($string, 0, -1) . $replacement;
 }

@@ -42,6 +42,44 @@ function my_acf_add_local_field_layout()
         'hide_on_screen' => '',
     ));
 
+    //////////////// Default Page Fileds ///////////////////////
+
+    acf_add_local_field_group(array(
+        'key' => 'group_default_page',
+        'title' => 'Default Page Fields',
+        'fields' => array(
+            array(
+                'key' => 'field_group_default_page',
+                'name' => 'acf_group_default_page',
+                'type' => 'clone',
+                'clone' => array(
+                    1 => 'group_slideshow',
+                    2 => 'group_main_content',
+                    3 => 'group_post_preview',
+                    4 => 'group_files',
+                ),
+                'display' => 'group',
+                'layout' => 'block',
+            ),
+
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'page_template',
+                    'operator' => '==',
+                    'value' => 'default'
+                )
+            )
+        ),
+        'menu_order' => 0,
+        'position' => 'normal',
+        'style' => 'default',
+        'label_placement' => 'top',
+        'instruction_placement' => 'label',
+        'hide_on_screen' => '',
+    ));
+
     //////////////// Template Squadra Fileds ///////////////////////
 
     acf_add_local_field_group(array(
@@ -104,6 +142,42 @@ function my_acf_add_local_field_layout()
                     'operator' => '==',
                     'value' => 'template-squadra.php',
                 ),
+            )
+        ),
+        'menu_order' => 0,
+        'position' => 'normal',
+        'style' => 'default',
+        'label_placement' => 'top',
+        'instruction_placement' => 'label',
+        'hide_on_screen' => '',
+    ));
+
+    //////////////// Contatti Fileds ///////////////////////
+
+    acf_add_local_field_group(array(
+        'key' => 'group_contatti',
+        'title' => 'Contatti Fields',
+        'fields' => array(
+            array(
+                'key' => 'field_group_contatti',
+                'name' => 'acf_group_contatti',
+                'type' => 'clone',
+                'clone' => array(
+                    1 => 'group_slideshow',
+                    2 => 'group_main_content',
+                ),
+                'display' => 'group',
+                'layout' => 'block',
+            ),
+
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'page_template',
+                    'operator' => '==',
+                    'value' => 'template-contatti.php'
+                )
             )
         ),
         'menu_order' => 0,
