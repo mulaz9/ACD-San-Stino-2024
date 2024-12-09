@@ -2,13 +2,25 @@
 global $images_slideshow;
 
 $slideshowHeightClass = get_field('slideshow_height', get_the_ID());
+$slideshowWidthClass = get_field('slideshow_width', get_the_ID());
+$containImageEnable = get_field('contain_image_enable', get_the_ID());
+$slideshowClasses = [];
 $slideshowLogo = get_field('slideshow_logo', get_the_ID());
 $slideshowLogoURL = wp_get_attachment_image_url($slideshowLogo['ID'], 'medium');
+
+$slideshowClasses[] = $slideshowHeightClass . ' ' . $slideshowWidthClass;
+
+if ($slideshowWidthClass == 'partial_width') {
+    $slideshowClasses[] = 'container';
+}
+if ($containImageEnable) {
+    $slideshowClasses[] = 'contain_image';
+}
 
 ?>
 
 <?php if ($images_slideshow && count($images_slideshow) > 0) { ?>
-    <div id="main_slideshow" class="slideshow_container <?php echo $slideshowHeightClass; ?>">
+    <div id="main_slideshow" class="slideshow_container <?php echo implode(' ', $slideshowClasses); ?>">
         <!-- Slider main container -->
         <div class="swiper">
             <!-- Additional required wrapper -->

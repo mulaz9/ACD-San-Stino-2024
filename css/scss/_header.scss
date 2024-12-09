@@ -11,12 +11,13 @@
 
   // background: linear-gradient($light-color 50%, $primary-color);
   height: $headerHeight;
-  background-color: $primary-color;
+  width: 100%;
+  background-color: $light-color;
   z-index: 100;
   position: sticky;
   top: 0;
   left: 0;
-  width: -webkit-fill-available;
+  border-bottom: 1px solid $borderColor;
   @include transition();
 
   @include media_Mobile() {
@@ -44,7 +45,12 @@
       .header_bottom {
         #logo {
           @include media_AllDesktop() {
-            transform: translateY(0) scale(0.6);
+            height: 80px;
+
+            img {
+              height: 100%;
+              @include transition();
+            }
           }
         }
 
@@ -102,7 +108,7 @@
 
         i {
           font-size: $fontSizeLarge;
-          color: $light-color;
+          color: $primary-color;
 
           @include media_Mobile() {
             font-size: $fontSizeTitleSmall;
@@ -228,7 +234,7 @@
           ul > li {
             list-style: none;
             color: #52b3de;
-            font-size: 1.7rem;
+            font-size: $fontSizeMedium;
             border-bottom: solid 1px #444;
             padding: 0.8rem;
 
@@ -242,14 +248,14 @@
                 &:after {
                   content: "\f078";
                   font-family: "Font Awesome 5 Free";
-                  font-size: $fontSizeLarge;
+                  font-size: $fontSize;
                   color: $primary-color;
                   font-weight: 600;
                   display: inline-block;
                   position: absolute;
-                  top: 30px;
-                  right: 30px;
-                  transform: translateY(-50%);
+                  top: 3px;
+                  right: 20px;
+                  transform: translateY(50%);
                   @include transition();
                 }
 
@@ -275,7 +281,7 @@
               li {
                 color: $light-color;
                 padding: 10px;
-                font-size: $fontSizeMedium;
+                font-size: $fontSize;
               }
             }
           }
@@ -314,7 +320,7 @@
               font-size: $fontSize;
 
               &:hover {
-                text-shadow: 0 0 $dark-color;
+                color: $primary-color;
               }
 
               @include media_DesktopLarger() {

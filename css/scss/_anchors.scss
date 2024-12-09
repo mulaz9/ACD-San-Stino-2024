@@ -20,6 +20,12 @@
           padding: 0 30px;
           font-size: $fontSizeSmall;
           font-weight: bold;
+
+          a {
+            &:hover {
+              color: $primary-color;
+            }
+          }
         }
       }
     }

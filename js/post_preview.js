@@ -10,6 +10,7 @@ if (slidesNum > 1 && hasAutoplay) {
     speed: 600,
     slidesPerView: 1,
     slidesPerGroup: 1,
+    centerInsufficientSlides: true,
     spaceBetween: 20,
     autoplay: {
       delay: 2000,
@@ -48,6 +49,7 @@ if (slidesNum > 1 && hasAutoplay) {
     slidesPerView: 3,
     slidesPerGroup: 1,
     spaceBetween: 20,
+    centerInsufficientSlides: true,
 
     // If we need pagination
     pagination: {

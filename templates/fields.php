@@ -269,6 +269,45 @@ function my_acf_add_local_field_groups()
 
             ),
             array(
+                'key' => 'slideshow_width',
+                'label' => 'Slideshow Width',
+                'name' => 'slideshow_width',
+                'instructions' => 'Selezionare la larghezza dello slideshow',
+                'type' => 'select',
+                'choices' => [
+                    'full_width' => '100%',
+                    'partial_width' => '70%'
+                ],
+                'default' => 'full_height',
+                'wrapper' => [
+                    'width' => '50%'
+                ]
+
+            ),
+            array(
+                'key' => 'contain_image_enable',
+                'name' => 'contain_image_enable',
+                'label' => 'Contieni intera immagine',
+                'instructions' => 'Selezionare per contenere l\'immagine (consigliato solo per immagini strette)',
+                'type' => 'true_false',
+                'ui' => 1,
+                'ui_on_text' => 'Si',
+                'ui_off_text' => 'No',
+                'default_value' => 0,
+                'wrapper' => [
+                    'width' => '50%'
+                ],
+                'conditional_logic' => array(
+                    array(
+                        array(
+                            'field' => 'slideshow_width',
+                            'operator' => '==',
+                            'value' => 'partial_width'
+                        ),
+                    ),
+                ),
+            ),
+            array(
                 'key' => 'slideshow_logo',
                 'label' => 'Slideshow Logo',
                 'name' => 'slideshow_logo',

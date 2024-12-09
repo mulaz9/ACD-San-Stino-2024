@@ -5,7 +5,7 @@ $showCategory = get_field('post_preview_category_show', get_the_ID());
 $viewAllEnabled = get_field('post_preview_view_all', get_the_ID());
 $hideDescription = get_field('post_preview_hide_description', get_the_ID());
 $readMoreEnabled = get_field('post_preview_read_more', get_the_ID());
-$words = 20;
+$words = 11;
 $bgColor = get_field('post_preview_bg_color', get_the_ID());
 $autoplayEnabled = get_field('post_preview_autoplay', get_the_ID());
 $viewAll = '<span class="view_all_separator">|</span><span class="view_all"><a href="' . get_the_permalink(250) . '">Tutte le notize</a></span>';

@@ -28,6 +28,16 @@
     }
   }
 
+  &.contain_image.partial_width {
+    .swiper .swiper-slide img.slideshow_img {
+      object-fit: contain;
+    }
+
+    .swiper-pagination {
+      display: none !important;
+    }
+  }
+
   .swiper {
     height: 100%;
     width: 100%;

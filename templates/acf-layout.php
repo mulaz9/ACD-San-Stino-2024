@@ -66,12 +66,18 @@ function my_acf_add_local_field_layout()
         'location' => array(
             array(
                 array(
+                    'param' => 'page_type',
+                    'operator' => '!=',
+                    'value' => 'front_page'
+                ),
+                array(
                     'param' => 'page_template',
                     'operator' => '==',
                     'value' => 'default'
                 )
-            )
+            ),
         ),
+
         'menu_order' => 0,
         'position' => 'normal',
         'style' => 'default',
