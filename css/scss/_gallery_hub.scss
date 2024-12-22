@@ -1,0 +1,66 @@
+#gallery {
+  .albums_wrapper {
+    display: flex;
+    gap: 50px 40px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+
+    .item {
+      width: calc((100% - 80px) / 3);
+
+      @include media_Mobile() {
+        width: calc((100% - 40px) / 2);
+      }
+
+      @include media_Phone() {
+        width: 100%;
+      }
+
+      &:nth-child(even) {
+        .thumb {
+          img {
+            box-shadow: rgba(82, 171, 227, 0.4) 5px 5px,
+              rgba(82, 171, 227, 0.3) 10px 10px,
+              rgba(82, 171, 227, 0.2) 15px 15px,
+              rgba(82, 171, 227, 0.1) 20px 20px,
+              rgba(82, 171, 227, 0.05) 25px 25px;
+          }
+        }
+      }
+
+      &:nth-child(odd) {
+        .thumb {
+          img {
+            box-shadow: rgba(153, 153, 153, 0.4) 5px 5px,
+              rgba(153, 153, 153, 0.3) 10px 10px,
+              rgba(153, 153, 153, 0.2) 15px 15px,
+              rgba(153, 153, 153, 0.1) 20px 20px,
+              rgba(153, 153, 153, 0.05) 25px 25px;
+          }
+        }
+      }
+
+      .thumb {
+        aspect-ratio: 16/11;
+
+        img {
+          @include objectfit_image;
+          border-radius: $radius;
+          //   box-shadow: blue 0px 0px 0px 2px inset,
+          //     rgb(255, 255, 255) 8px -8px 0px -3px, $borderColor 8px -8px,
+          //     rgb(255, 255, 255) 16px -16px 0px -3px, $borderColor 16px -16px,
+          //     rgb(255, 255, 255) 24px -24px 0px -3px, $borderColor 24px -24px,
+          //     rgb(255, 255, 255) 32px -32px 0px -3px, $borderColor 32px -32px;
+        }
+      }
+
+      .description_wrap {
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+      }
+    }
+  }
+}

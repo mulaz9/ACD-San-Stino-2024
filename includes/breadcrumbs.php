@@ -21,6 +21,20 @@ function the_breadcrumb()
         echo '</a>' . $sep;
 
         // Check if the current page is a category, an archive or a single page. If so show the category or archive name.
+        if (is_singular('gallery-album')) {
+            $gallery_hub = get_posts(array(
+                'numberposts' => 1,
+                'post_status' => 'publish',
+                'post_type' => 'page',
+                'meta_key' => '_wp_page_template',
+                'meta_value' => 'template-gallery-hub.php'
+            ));
+
+            $gallery_hub_title = $gallery_hub[0]->post_title;
+            $gallery_hub_url = get_the_permalink($gallery_hub[0]->ID);
+
+            echo '<a href="' . $gallery_hub_url . '">' . $gallery_hub_title . '</a>';
+        }
         if (is_category() || is_single()) {
             the_category('title_li=');
         } elseif (is_archive() || is_single()) {

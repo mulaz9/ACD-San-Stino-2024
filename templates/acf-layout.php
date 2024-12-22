@@ -193,6 +193,78 @@ function my_acf_add_local_field_layout()
         'instruction_placement' => 'label',
         'hide_on_screen' => '',
     ));
+
+    //////////////// Gallery Hub ///////////////////////
+
+    acf_add_local_field_group(array(
+        'key' => 'group_gallery_hub',
+        'title' => 'Gallery Hub Fields',
+        'fields' => array(
+            array(
+                'key' => 'field_group_gallery_hub',
+                'name' => 'acf_group_gallery_hub',
+                'type' => 'clone',
+                'clone' => array(
+                    1 => 'group_slideshow',
+                    2 => 'group_main_content',
+                ),
+                'display' => 'group',
+                'layout' => 'block',
+            ),
+
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'page_template',
+                    'operator' => '==',
+                    'value' => 'template-gallery-hub.php'
+                )
+            )
+        ),
+        'menu_order' => 0,
+        'position' => 'normal',
+        'style' => 'default',
+        'label_placement' => 'top',
+        'instruction_placement' => 'label',
+        'hide_on_screen' => '',
+    ));
+
+    //////////////// Gallery Album CPT ///////////////////////
+
+    acf_add_local_field_group(array(
+        'key' => 'group_gallery_album_cpt',
+        'title' => 'Gallery Album cpt Fields',
+        'fields' => array(
+            array(
+                'key' => 'field_group_gallery_album_cpt',
+                'name' => 'acf_group_gallery_album_cpt',
+                'type' => 'clone',
+                'clone' => array(
+                    1 => 'group_main_content',
+                    2 => 'group_gallery_album',
+                ),
+                'display' => 'group',
+                'layout' => 'block',
+            ),
+
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'post_type',
+                    'operator' => '==',
+                    'value' => 'gallery-album'
+                )
+            )
+        ),
+        'menu_order' => 0,
+        'position' => 'normal',
+        'style' => 'default',
+        'label_placement' => 'top',
+        'instruction_placement' => 'label',
+        'hide_on_screen' => '',
+    ));
 }
 
 add_action('acf/init', 'my_acf_add_local_field_layout');

@@ -1103,3 +1103,25 @@ function my_acf_add_local_field_groups()
 }
 
 add_action('acf/init', 'my_acf_add_local_field_groups');
+
+
+///////////////////////// Gallery Album /////////////////////////
+
+acf_add_local_field_group(array(
+    'key' => 'group_gallery_album',
+    'title' => 'Gallery Album Fields',
+    'fields' => array(
+        array(
+            'key' => 'gallery_album_gallery',
+            'label' => 'Gallery',
+            'name' => 'gallery_album_gallery',
+            'type' => 'gallery',
+        ),
+    ),
+    'menu_order' => 0,
+    'position' => 'normal',
+    'style' => 'default',
+    'label_placement' => 'top',
+    'instruction_placement' => 'label',
+    'hide_on_screen' => '',
+));

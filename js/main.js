@@ -146,3 +146,6 @@ function backToTop() {
 }
 
 backToTop();
+
+// Fancybox
+Fancybox.bind();

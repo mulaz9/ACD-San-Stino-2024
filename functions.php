@@ -21,6 +21,7 @@ require_once(TEMPLATES . 'acf-layout.php');
 require_once(TEMPLATES . 'categories.php');
 require_once(TEMPLATES . 'options.php');
 require_once(TEMPLATES . 'assets.php');
+require_once(TEMPLATES . 'custom-post-type.php');
 require_once(INCLUDES . 'data_handler.php');
 require_once(INCLUDES . 'breadcrumbs.php');
 
