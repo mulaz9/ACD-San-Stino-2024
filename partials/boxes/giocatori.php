@@ -66,7 +66,11 @@ if (safeCount($sanitized_data) > 0) { ?>
                         $role = $member['staff_ruolo']; ?>
                         <div class="item">
                             <div class="thumb">
-                                <img src="<?php echo $photo_url; ?>" alt="">
+                                <?php if ($photo_url) { ?>
+                                    <img src="<?php echo $photo_url; ?>" alt="">
+                                <?php } else { ?>
+                                    <img class="placeholder" src="<?php echo $photo_placeholder; ?>" alt="">
+                                <?php } ?>
                             </div>
                             <div class="text_wrap">
                                 <div class="name"><?php echo $name; ?></div>

@@ -2,7 +2,7 @@ const slidesNum = document.querySelectorAll(
   "#post_preview .swiper-slide"
 ).length;
 
-if (slidesNum > 1 && hasAutoplay) {
+if (slidesNum >= 1 && hasAutoplay) {
   const swiper = new Swiper("#post_preview .swiper", {
     // Optional parameters
     direction: "horizontal",
@@ -16,6 +16,14 @@ if (slidesNum > 1 && hasAutoplay) {
       delay: 2000,
       disableOnInteraction: true,
       pauseOnMouseEnter: true,
+    },
+    on: {
+      init: function () {
+        if (this.slides.length <= 1) {
+          this.params.spaceBetween = 0; // Rimuovi lo spazio se c'è solo una slide
+          this.update(); // Rende effettive le modifiche
+        }
+      },
     },
 
     // Responsive breakpoints
@@ -40,16 +48,34 @@ if (slidesNum > 1 && hasAutoplay) {
       prevEl: "#post_preview .swiper-button-prev",
     },
   });
-} else if (slidesCount > 1 && !hasAutoplay) {
+} else if (slidesCount >= 1 && !hasAutoplay) {
   const swiper = new Swiper("#post_preview .swiper", {
     // Optional parameters
     direction: "horizontal",
     loop: true,
     speed: 600,
-    slidesPerView: 3,
+    slidesPerView: 1,
     slidesPerGroup: 1,
     spaceBetween: 20,
     centerInsufficientSlides: true,
+    on: {
+      init: function () {
+        if (this.slides.length <= 1) {
+          this.params.spaceBetween = 0; // Rimuovi lo spazio se c'è solo una slide
+          this.update(); // Rende effettive le modifiche
+        }
+      },
+    },
+
+    // Responsive breakpoints
+    breakpoints: {
+      1025: {
+        slidesPerView: 3,
+      },
+      768: {
+        slidesPerView: 2,
+      },
+    },
 
     // If we need pagination
     pagination: {

@@ -5,6 +5,15 @@
     align-items: center;
     justify-content: center;
     gap: 30px;
+
+    @include media_DesktopLarge() {
+      gap: 30px 60px;
+    }
+
+    @include media_DesktopLarger() {
+      gap: 30px 100px;
+    }
+
     .card_wrap {
       position: relative;
       width: calc(100% / 4 - 90px / 4);

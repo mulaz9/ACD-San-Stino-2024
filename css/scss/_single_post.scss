@@ -84,6 +84,11 @@
         font-size: $fontSizeTitle;
         text-align: left;
 
+        @include media_Laptop() {
+          font-size: $fontSizeTitleMedium;
+          margin-bottom: 20px;
+        }
+
         @include media_Phone() {
           font-size: $fontSizeTitleSmall;
         }

@@ -8,7 +8,7 @@ $readMoreEnabled = get_field('post_preview_read_more', get_the_ID());
 $words = 11;
 $bgColor = get_field('post_preview_bg_color', get_the_ID());
 $autoplayEnabled = get_field('post_preview_autoplay', get_the_ID());
-$viewAll = '<span class="view_all_separator">|</span><span class="view_all"><a href="' . get_the_permalink(250) . '">Tutte le notize</a></span>';
+$viewAll = '<span class="btn_external view_all"><a href="' . get_the_permalink(250) . '">Tutte le notize</a></span>';
 
 if ($isEnabled) {
     $titolo = get_field('post_preview_title', get_the_ID());
@@ -27,7 +27,7 @@ if ($isEnabled) {
                 var hasAutoplay = <?php echo json_encode($autoplayEnabled); ?>
             </script>
             <div class="container">
-                <h1 class="section_title"><?php echo $titolo, $viewAllEnabled ? $viewAll : ''; ?></h1>
+                <h1 class="section_title"><?php echo $titolo; ?></h1>
                 <!-- Slider main container -->
                 <div class="<?php echo $postsContainerClass; ?>">
                     <!-- Additional required wrapper -->
@@ -51,7 +51,7 @@ if ($isEnabled) {
                                                 foreach ($postCategories as $category) {
                                                     $postCatName = $category->cat_name;
                                                     if ($postCatName !== 'In Evidenza' && $postCatName !== 'Uncategorized') { ?>
-                                                        <a href="#" class="category_link"><?php echo $postCatName; ?></a>
+                                                        <a href="javascript:;" class="category_link"><?php echo $postCatName; ?></a>
                                                 <?php }
                                                 } ?>
                                             </div>
@@ -94,6 +94,9 @@ if ($isEnabled) {
                         }
                         ?>
                     </div>
+                    <?php if ($viewAllEnabled) { ?>
+                        <div class="btns"><?php echo $viewAll; ?></div>
+                    <?php } ?>
                 </div>
                 <?php if ($layout == 'carousel') { ?>
                     <!-- If we need pagination -->

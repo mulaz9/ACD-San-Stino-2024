@@ -35,8 +35,8 @@
       .item {
         border-radius: $radius;
         overflow: hidden;
-        box-shadow: $giocatoriShadow;
-        border-left: 1px solid $primary-color;
+        box-shadow: $box-shadow;
+        background-color: $light-color;
 
         .thumb {
           aspect-ratio: 1/1;

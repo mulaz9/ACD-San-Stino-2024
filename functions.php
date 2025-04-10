@@ -8,8 +8,6 @@
 // add_action('wp_enqueue_scripts', 'u_enqueue');
 error_reporting(0);
 
-global $sitepress;
-
 define('TEMP_DIR', get_template_directory());
 
 const TEMPLATES = TEMP_DIR . '/templates/';
@@ -82,3 +80,21 @@ function replaceLastLetter($string, $replacement)
     }
     return substr($string, 0, -1) . $replacement;
 }
+
+
+// Filtro per nascondere le pagine in bozza dai menu di navigazione
+function hide_draft_pages_from_menu($items, $args)
+{
+    // Cicla attraverso tutti gli elementi del menu
+    foreach ($items as $key => $item) {
+        // Verifica se l'elemento del menu è una pagina e se è in stato di bozza
+        if ($item->object == 'page' && get_post_status($item->object_id) == 'draft') {
+            // Rimuove l'elemento del menu
+            unset($items[$key]);
+        }
+    }
+    return $items;
+}
+
+// Aggiungi il filtro al menu principale
+add_filter('wp_get_nav_menu_items', 'hide_draft_pages_from_menu', 10, 2);

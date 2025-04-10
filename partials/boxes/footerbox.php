@@ -55,6 +55,6 @@
             <a href="mailto:davide.mulato@gmail.com">
                 <i class="fas fa-solid fa-desktop"></i>Davide Mulato</a>
         </div>
-        <p>ACD San Stino &copy; 2024, All Rights Reserved</p>
+        <p>ACD San Stino &copy; <?php echo date('Y'); ?>, All Rights Reserved</p>
     </div>
 </footer>

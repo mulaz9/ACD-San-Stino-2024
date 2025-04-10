@@ -1,10 +1,11 @@
 #footer {
-  background: $hoverColor;
+  background: $sectionDarkColor;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  text-align: center;
+  padding: 60px;
   color: $light-color;
 
   a {
@@ -18,7 +19,7 @@
 
   .social {
     width: 82px;
-    padding: 10px;
+    padding: 20px;
     display: flex;
     justify-content: space-between;
   }
@@ -27,7 +28,7 @@
     display: flex;
     align-items: center;
     margin-bottom: 10px;
-    font-size: 0.6rem;
+    font-size: $fontSizeSmall;
 
     .policy-title {
       margin: 0 10px;
@@ -36,18 +37,19 @@
 
   .preferenze-cookie {
     margin: 10px;
-    font-size: 0.6rem;
+    font-size: $fontSizeSmall;
   }
 
   .last--row {
     .developer {
+      margin: 20px 0;
       i {
         padding: 0 0.5rem;
       }
     }
 
     text-align: center;
-    font-size: 0.8rem;
+    font-size: $fontSize;
     color: $primary-color;
   }
 }

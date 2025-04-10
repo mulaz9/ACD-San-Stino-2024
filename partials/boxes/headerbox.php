@@ -10,12 +10,6 @@ $logoALT = $logo['alt'];
 
 <header id="header">
     <nav class="header_wrapper">
-        <div class="header_top">
-            <div class="social">
-                <a href="https://www.facebook.com/acdsanstino" target="_blank"><i class="fab fa-brands fa-facebook-square fa-2x"></i></a>
-                <a href="https://www.instagram.com/acd_sanstino/" target="_blank"><i class="fab fa-brands fa-instagram fa-2x"></i></a>
-            </div>
-        </div>
         <div class="header_bottom">
             <a href="<?php echo get_home_url(); ?>" id="logo" title="Torna all'homepage">
                 <img src="<?php echo $logoURL; ?>" alt="<?php echo $logoALT; ?>" height="<?php echo $logoHeight; ?>" width="60">
@@ -42,6 +36,10 @@ $logoALT = $logo['alt'];
                     ) ?>
                 </div>
             <?php } ?>
+            <div class="social">
+                <a href="https://www.facebook.com/acdsanstino" target="_blank"><i class="fab fa-brands fa-facebook-square fa-2x"></i></a>
+                <a href="https://www.instagram.com/acd_sanstino/" target="_blank"><i class="fab fa-brands fa-instagram fa-2x"></i></a>
+            </div>
         </div>
     </nav>
 </header>

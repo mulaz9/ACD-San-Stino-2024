@@ -1,1 +1,1 @@
-{"version":3,"names":[],"mappings":"","sources":["admin.css"],"sourcesContent":[".acf-tab-wrap {\n  overflow: hidden;\n}"],"file":"admin.min.css"}
+{"version":3,"sources":["admin.scss"],"names":[],"mappings":"AAAA,cACE,SAAA","file":"admin.min.css","sourcesContent":[".acf-tab-wrap {\r\n  overflow: hidden;\r\n}\r\n"]}

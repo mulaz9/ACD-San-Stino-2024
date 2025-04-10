@@ -5,7 +5,7 @@ global $current_squadra_data, $prima_squadra_data;
 $hide_title = get_field('main_content_hide_title');
 $titolo = !empty(get_field('main_content_title')) ? get_field('main_content_title') : get_the_title();
 $sottotitolo = get_field('main_content_subtitle');
-$girone = $prima_squadra_data->girone;
+$girone = get_field('girone_squadra');
 $content = get_the_content();
 $foto =  wp_get_attachment_image_url(get_field('main_content_image')['ID'], 'full');
 $image_position = get_field('main_content_image_position');

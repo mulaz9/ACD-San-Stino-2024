@@ -1,0 +1,19 @@
+#squad_list {
+  ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+
+    li {
+      a {
+        @include arrowLink($fontColor, $fontSizeTitleSmall);
+
+        @include media_Mobile() {
+          font-size: $fontSizeMedium;
+        }
+      }
+    }
+  }
+}

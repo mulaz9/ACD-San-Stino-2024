@@ -1,4 +1,15 @@
 #sponsor {
+  .sponsor_slider {
+    background-color: $light-color;
+    border-radius: $radius;
+    padding: 10px 0;
+    box-shadow: $box-shadow;
+
+    &.main_sponsor_logo {
+      padding: 40px;
+    }
+  }
+
   .sponsor_section {
     padding-bottom: 150px;
     @include media_Mobile() {
@@ -44,7 +55,7 @@
 
   #official_sponsor {
     .page-template-template-sponsor & {
-      max-width: 80%;
+      max-width: 90%;
       margin: 0 auto;
 
       .logos_wrapper {
@@ -52,25 +63,21 @@
         flex-wrap: wrap;
         align-items: center;
         justify-content: center;
-        gap: 60px 80px;
+        gap: 40px 60px;
 
         @include media_Mobile() {
-          gap: 40px 50px;
-        }
-
-        @include media_Phone() {
-          max-width: 90%;
+          gap: 30px 40px;
         }
 
         .official_sponsor_logo {
-          max-width: calc(100% / 4 - 240px / 4);
+          max-width: calc((100% - 120px) / 3);
 
           @include media_Mobile() {
-            max-width: calc(100% / 4 - 150px / 4);
+            max-width: calc((100% - 80px) / 3);
           }
 
           @include media_Phone() {
-            max-width: calc(100% / 2 - 50px / 2);
+            max-width: calc((100% - 40px) / 2);
           }
 
           img {
@@ -80,14 +87,15 @@
         }
       }
     }
+
     .swiper-wrapper {
       transition-timing-function: linear;
 
       .swiper-slide {
-        height: 200px;
+        height: 110px;
 
         @include media_Phone() {
-          height: 150px;
+          height: 50px;
         }
 
         .official_sponsor_logo {

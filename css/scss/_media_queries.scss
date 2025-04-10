@@ -28,6 +28,12 @@
   }
 }
 
+@mixin media_Laptop() {
+  @media (min-width: 1024px) and (max-width: 1440px) {
+    @content;
+  }
+}
+
 @mixin media_AllDesktop() {
   @media (min-width: 1024px) {
     @content;

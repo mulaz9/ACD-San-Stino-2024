@@ -229,7 +229,6 @@ p {
   position: fixed;
   bottom: 30px;
   left: 15px;
-  z-index: 100;
 
   &:hover {
     cursor: pointer;
@@ -246,12 +245,5 @@ p {
       border-radius: $radius;
       border: 1px solid $primary-color;
     }
-  }
-}
-
-#squad_list {
-  padding-bottom: 80px;
-  @include media_Mobile() {
-    padding-bottom: 60px;
   }
 }

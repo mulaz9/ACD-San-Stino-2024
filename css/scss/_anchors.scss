@@ -1,7 +1,6 @@
 #anchors {
   padding: 30px 0;
-  border-top: 1px solid $borderColor;
-  border-bottom: 1px solid $borderColor;
+  box-shadow: $box-shadow;
 
   & + .section.has_iframe {
     padding-top: 80px;

@@ -174,8 +174,8 @@ function site_options_add_local_field_groups()
                         'type' => 'text',
                     ),
                     array(
-                        'key' => 'official_parteners',
-                        'name' => 'official_parteners',
+                        'key' => 'official_partners',
+                        'name' => 'official_partners',
                         'label' => 'Official Partners',
                         'type' => 'repeater',
                         'sub_fields' => array(

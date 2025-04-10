@@ -30,11 +30,17 @@
 
   &.contain_image.partial_width {
     .swiper .swiper-slide img.slideshow_img {
-      object-fit: contain;
+      border-radius: 0 0 $radius $radius;
+
+      @include media_Mobile() {
+        border-radius: 0;
+      }
     }
 
-    .swiper-pagination {
-      display: none !important;
+    @include media_Mobile() {
+      &.container {
+        padding: 0;
+      }
     }
   }
 
@@ -54,6 +60,7 @@
       }
 
       .caption_box {
+        width: 80%;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -87,12 +94,16 @@
           font-family: $secondFont;
           text-align: center;
 
+          @include media_DesktopLarger() {
+            font-size: $fontSizeXXL;
+          }
+
           @include media_Mobile() {
             font-size: $fontSizeTitle;
           }
 
-          @include media_DesktopLarger() {
-            font-size: $fontSizeXXL;
+          @include media_Phone() {
+            font-size: $fontSizeTitleMedium;
           }
         }
       }

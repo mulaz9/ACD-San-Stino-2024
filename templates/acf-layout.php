@@ -86,6 +86,45 @@ function my_acf_add_local_field_layout()
         'hide_on_screen' => '',
     ));
 
+    //////////////// Settore Giovanile Hub Fileds ///////////////////////
+
+    acf_add_local_field_group(array(
+        'key' => 'group_settore_giovanile_hub',
+        'title' => 'Settore Giovanile Hub Fields',
+        'fields' => array(
+            array(
+                'key' => 'field_group_settore_giovanile_hub',
+                'name' => 'acf_group_settore_giovanile_hub',
+                'type' => 'clone',
+                'clone' => array(
+                    1 => 'group_slideshow',
+                    2 => 'group_main_content',
+                    3 => 'group_post_preview',
+                    4 => 'group_files',
+                ),
+                'display' => 'group',
+                'layout' => 'block',
+            ),
+
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'page_template',
+                    'operator' => '==',
+                    'value' => 'template-settore-giovanile-hub.php'
+                )
+            ),
+        ),
+
+        'menu_order' => 0,
+        'position' => 'normal',
+        'style' => 'default',
+        'label_placement' => 'top',
+        'instruction_placement' => 'label',
+        'hide_on_screen' => '',
+    ));
+
     //////////////// Template Squadra Fileds ///////////////////////
 
     acf_add_local_field_group(array(

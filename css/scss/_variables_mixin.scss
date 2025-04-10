@@ -14,7 +14,7 @@ $fontSizeXL: 64px;
 $fontSizeXXL: 80px;
 
 $lineHeight: 160%;
-$lineHeightTitle: 150%;
+$lineHeightTitle: 120%;
 
 $bodyBg: #fff;
 $light-color: white;
@@ -29,8 +29,8 @@ $hoverColor: #333333;
 $highlightColor: red;
 $fontColor: #333333;
 $sectionDefaultColor: rgb(255, 255, 255, 0.7);
-$sectionLightColor: rgb(238, 237, 234, 0.7);
-$sectionDarkColor: #333333;
+$sectionLightColor: #f9fcfe;
+$sectionDarkColor: #222222;
 $titleColor: #000000;
 $titleSpacing: 0.03rem;
 
@@ -40,7 +40,7 @@ $sliderHeight: calc(100vh - 130px);
 
 $headerHeight: 130px;
 $headerHeightFixed: 100px;
-$mobileHeaderHeight: 130px;
+$mobileHeaderHeight: 100px;
 
 $slideshowHeight: calc(100vh - $headerHeight);
 $partialSlideshowHeight: calc(75vh - $headerHeight);
@@ -49,6 +49,8 @@ $slideshowHeightMobile: calc(100vh - $mobileHeaderHeight);
 $shadow: $primary-color 4px 4px;
 $shadowDark: 1px 1px 2px black;
 $shadowPrimary: 1px 1px 2px $primary-color;
+$box-shadow: 0 8px 32px -8px rgb(82 171 227 / 30%);
+$box-shadow-section: 0 8px 32px -8px rgb(82 171 227 / 20%);
 $newsImgShadow: 10px 20px 15px #333;
 $giocatoriShadow: 5px 5px 0px $primary-color;
 
@@ -56,7 +58,7 @@ $sectionMaxWidth: 1360px;
 
 $postsGridGap: 40px;
 
-$radius: 6px;
+$radius: 16px;
 
 @mixin container() {
   margin-right: auto;

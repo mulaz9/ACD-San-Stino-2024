@@ -23,11 +23,11 @@ if (officialSponsorSlidesNum > 1) {
     breakpoints: {
       1025: {
         slidesPerView: 4,
-        spaceBetween: 80,
+        // spaceBetween: 80,
       },
       768: {
         slidesPerView: 3,
-        spaceBetween: 60,
+        // spaceBetween: 60,
       },
     },
   });

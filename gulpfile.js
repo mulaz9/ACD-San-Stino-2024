@@ -1,54 +1,54 @@
-const gulp = require("gulp"),
-  concatCss = require("gulp-concat-css"),
-  cleanCSS = require("gulp-clean-css"),
-  sass = require("gulp-sass")(require("sass")),
-  autoprefixer = require("gulp-autoprefixer"),
-  uglify = require("gulp-uglify"),
-  sourcemaps = require("gulp-sourcemaps"),
-  rename = require("gulp-rename");
+const gulp = require("gulp");
+const sass = require("gulp-sass")(require("sass"));
+const autoprefixer = require("gulp-autoprefixer");
+const cleanCSS = require("gulp-clean-css");
+const sourcemaps = require("gulp-sourcemaps");
+const rename = require("gulp-rename");
+const uglify = require("gulp-uglify");
+const plumber = require("gulp-plumber");
 
-// gulp.task("scss", function sassFunc() {
-//   return gulp
-//     .src("./css/*.scss")
-//     .pipe(scss())
-//     .pipe(concatCss("main.scss"))
-//     .pipe(gulp.dest("./css"));
-// });
-
-gulp.task("styles", function minifyFunc() {
+// Task per i CSS principali
+gulp.task("styles", function () {
   return gulp
     .src("./css/scss/main.scss")
+    .pipe(plumber())
+    .pipe(sourcemaps.init())
     .pipe(sass().on("error", sass.logError))
-    .pipe(concatCss("main.css"))
-    .pipe(sourcemaps.init({ loadMaps: true }))
+    .pipe(autoprefixer())
+    .pipe(cleanCSS())
     .pipe(rename({ suffix: ".min" }))
     .pipe(sourcemaps.write("."))
     .pipe(gulp.dest("./css"));
 });
 
-gulp.task("admin-styles", function minifyFunc() {
+// Task per gli stili admin
+gulp.task("admin-styles", function () {
   return gulp
     .src("./css/scss/admin.scss")
+    .pipe(plumber())
+    .pipe(sourcemaps.init())
     .pipe(sass().on("error", sass.logError))
-    .pipe(concatCss("admin.css"))
-    .pipe(sourcemaps.init({ loadMaps: true }))
+    .pipe(autoprefixer())
+    .pipe(cleanCSS())
     .pipe(rename({ suffix: ".min" }))
     .pipe(sourcemaps.write("."))
     .pipe(gulp.dest("./css"));
 });
 
+// Minificazione JS
 gulp.task("minify-js", function () {
   return gulp
     .src(["js/*.js", "!js/*.min.js"])
-    .pipe(sourcemaps.init({ loadMaps: true }))
+    .pipe(plumber())
+    .pipe(sourcemaps.init())
     .pipe(uglify())
     .pipe(rename({ suffix: ".min" }))
     .pipe(sourcemaps.write("."))
     .pipe(gulp.dest("js/"));
 });
 
-gulp.task("default", function watchFunc() {
-  gulp.watch("./css/scss/*.scss", gulp.series("styles"));
-  gulp.watch("./css/scss/*.scss", gulp.series("admin-styles"));
+// Watcher
+gulp.task("default", function () {
+  gulp.watch("./css/scss/**/*.scss", gulp.series("styles", "admin-styles"));
   gulp.watch(["js/*.js", "!js/*.min.js"], gulp.series("minify-js"));
 });

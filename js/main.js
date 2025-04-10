@@ -108,10 +108,10 @@ if (slideshow) {
   const slideshowHeight = slideshow.offsetHeight;
   const headrHeight = nav.offsetHeight;
   window.addEventListener("scroll", function () {
-    if (this.window.scrollY > 200) {
-      nav.style.position = "fixed";
+    if (this.window.scrollY > 400) {
+      nav.classList.add("fixed");
     } else {
-      nav.style.position = "sticky";
+      nav.classList.remove("fixed");
     }
     if (this.window.scrollY > slideshowHeight - headrHeight) {
       nav.classList.add("fixed");
@@ -123,10 +123,10 @@ if (slideshow) {
   });
 } else {
   window.addEventListener("scroll", function () {
-    if (this.window.scrollY > 200) {
-      nav.style.position = "fixed";
+    if (this.window.scrollY > 400) {
+      nav.classList.add("fixed");
     } else {
-      nav.style.position = "sticky";
+      nav.classList.remove("fixed");
     }
     if (this.window.scrollY > 500) {
       nav.classList.add("fixed");
@@ -149,3 +149,18 @@ backToTop();
 
 // Fancybox
 Fancybox.bind();
+
+// Debouncing
+function debounce(func, delay) {
+  let timeout;
+  return function (...args) {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func(...args), delay);
+  };
+}
+
+const handleInput = debounce(function () {
+  console.log("Funzione chiamata con debouncing");
+}, 300);
+
+document.querySelector("input").addEventListener("input", handleInput);
