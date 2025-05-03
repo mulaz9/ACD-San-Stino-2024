@@ -7,7 +7,9 @@ $titolo = !empty(get_field('main_content_title')) ? get_field('main_content_titl
 $sottotitolo = get_field('main_content_subtitle');
 $girone = get_field('girone_squadra');
 $content = get_the_content();
-$foto =  wp_get_attachment_image_url(get_field('main_content_image')['ID'], 'full');
+$imageID = get_field('main_content_image')['ID'];
+$foto_HTML =  wp_get_attachment_image($imageID, 'full', false, array('class' => 'main_content_image'));
+
 $image_position = get_field('main_content_image_position');
 $text_layout = get_field('main_content_text_layout');
 $has_cta = get_field('main_content_btns_enable');
@@ -57,8 +59,8 @@ $btns = get_field('main_content_btns');
                 <?php } ?>
                 <?php if ($image_position == 'left' || $image_position == 'right') { ?>
             </aside> <?php } else { ?></div><?php } ?>
-        <?php if (!empty($foto)) { ?>
-            <div class="thumb"><img class="foto_squadra" src="<?php echo $foto; ?>" alt=""></div>
+        <?php if (!empty($imageID)) { ?>
+            <div class="thumb"><?php echo $foto_HTML; ?></div>
         <?php } ?>
     </main>
 <?php }

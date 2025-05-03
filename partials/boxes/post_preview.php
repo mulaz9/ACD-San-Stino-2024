@@ -72,9 +72,20 @@ if ($isEnabled) {
                                 </div>
                             <?php } elseif (has_category($selectedCategories, $curPost)) { ?>
                                 <div class="<?php echo $item; ?>">
-                                    <div class="thumb"><img src="<?php echo $postImgUrl; ?>" alt="" loading="lazy">
+                                    <div class="thumb">
+                                        <a href="<?php echo $postUrl; ?>">
+                                            <img src="<?php echo $postImgUrl; ?>" alt="" loading="lazy">
+                                        </a>
                                         <?php if ($showCategory) { ?>
-                                            <a href="#" class="category_link"><?php echo $postCatName; ?></a>
+                                            <div class="categories_wrap">
+                                                <?php
+                                                foreach ($postCategories as $category) {
+                                                    $postCatName = $category->cat_name;
+                                                    if ($postCatName !== 'In Evidenza' && $postCatName !== 'Uncategorized') { ?>
+                                                        <a href="javascript:;" class="category_link"><?php echo $postCatName; ?></a>
+                                                <?php }
+                                                } ?>
+                                            </div>
                                         <?php } ?>
                                     </div>
                                     <div class="description_wrap">

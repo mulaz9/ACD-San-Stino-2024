@@ -44,6 +44,23 @@
     }
   }
 
+  &.caption_on_bottom {
+    .swiper {
+      .swiper-slide {
+        .caption_box {
+          height: auto;
+          top: auto;
+          bottom: 10%;
+
+          @include media_AllDesktop() {
+            flex-direction: row-reverse;
+            bottom: 20%;
+          }
+        }
+      }
+    }
+  }
+
   .swiper {
     height: 100%;
     width: 100%;

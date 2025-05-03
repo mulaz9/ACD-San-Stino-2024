@@ -37,10 +37,10 @@ if (slidesNum >= 1 && hasAutoplay) {
     },
 
     // If we need pagination
-    pagination: {
-      el: "#post_preview .swiper-pagination",
-      clickable: true,
-    },
+    // pagination: {
+    //   el: "#post_preview .swiper-pagination",
+    //   clickable: true,
+    // },
 
     // Navigation arrows
     navigation: {
@@ -48,7 +48,7 @@ if (slidesNum >= 1 && hasAutoplay) {
       prevEl: "#post_preview .swiper-button-prev",
     },
   });
-} else if (slidesCount >= 1 && !hasAutoplay) {
+} else if (slidesNum >= 1 && !hasAutoplay) {
   const swiper = new Swiper("#post_preview .swiper", {
     // Optional parameters
     direction: "horizontal",
@@ -78,10 +78,10 @@ if (slidesNum >= 1 && hasAutoplay) {
     },
 
     // If we need pagination
-    pagination: {
-      el: "#post_preview .swiper-pagination",
-      clickable: true,
-    },
+    // pagination: {
+    //   el: "#post_preview .swiper-pagination",
+    //   clickable: true,
+    // },
 
     // Navigation arrows
     navigation: {

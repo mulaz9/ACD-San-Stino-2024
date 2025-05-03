@@ -2,6 +2,10 @@
   #main_content {
     & + #sponsor {
       padding-top: 80px;
+
+      @include media_Mobile() {
+        padding-top: 0;
+      }
     }
 
     display: flex;
@@ -12,7 +16,7 @@
 
     .thumb {
       @include media_AllDesktop() {
-        width: 45%;
+        width: 40%;
         max-height: 85vh;
       }
       img {
@@ -63,10 +67,12 @@
         .separator {
           padding: 0 15px;
           &:after {
-            content: "\f7a5";
-            color: $medium-color;
-            font-weight: bold;
-            font-family: "Font Awesome 5 Pro";
+            content: "\f1e3";
+            font-size: 10px;
+            font-family: "Font Awesome 6 Free";
+            color: #dadadd;
+            position: relative;
+            bottom: 2px;
           }
           &:last-child {
             display: none;

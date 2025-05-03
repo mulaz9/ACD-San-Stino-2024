@@ -163,4 +163,7 @@ const handleInput = debounce(function () {
   console.log("Funzione chiamata con debouncing");
 }, 300);
 
-document.querySelector("input").addEventListener("input", handleInput);
+const input = document.querySelector("input");
+if (input) {
+  input.addEventListener("input", handleInput);
+}

@@ -285,6 +285,18 @@ function my_acf_add_local_field_groups()
 
             ),
             array(
+                'key' => 'slideshow_caption_on_bottom',
+                'label' => 'Slideshow Caption On Bottom',
+                'name' => 'slideshow_caption_on_bottom',
+                'instructions' => 'Posizio la caption in basso',
+                'type' => 'true_false',
+                'ui' => 1,
+                'wrapper' => [
+                    'width' => '50%'
+                ]
+
+            ),
+            array(
                 'key' => 'contain_image_enable',
                 'name' => 'contain_image_enable',
                 'label' => 'Contieni intera immagine',
@@ -756,20 +768,6 @@ function my_acf_add_local_field_groups()
                     ),
                 ),
             ),
-        ),
-        'location' => array(
-            array(
-                array(
-                    'param' => 'page_template',
-                    'operator' => '==',
-                    'value' => 'default',
-                ),
-                array(
-                    'param' => 'page_type',
-                    'operator' => '!=',
-                    'value' => 'front_page',
-                ),
-            )
         ),
         'menu_order' => 0,
         'position' => 'normal',

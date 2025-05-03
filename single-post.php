@@ -1,10 +1,11 @@
 <?php get_header();
 $postCategories = get_the_category();
+$image_HTML = get_the_post_thumbnail(get_the_ID(), 'large');
 ?>
 
 
 <main id="main_content" class="section container">
-    <div class="thumb"><img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'full') ?>" alt=""></div>
+    <div class="thumb"><?php echo $image_HTML; ?></div>
     <div class="post_content">
         <div class="categories_wrap">
             <?php

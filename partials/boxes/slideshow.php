@@ -7,6 +7,7 @@ $containImageEnable = get_field('contain_image_enable', get_the_ID());
 $slideshowClasses = [];
 $slideshowLogo = get_field('slideshow_logo', get_the_ID());
 $slideshowLogoURL = wp_get_attachment_image_url($slideshowLogo['ID'], 'medium');
+$captionOnBottom = get_field('slideshow_caption_on_bottom');
 
 $slideshowClasses[] = $slideshowHeightClass . ' ' . $slideshowWidthClass;
 
@@ -15,6 +16,9 @@ if ($slideshowWidthClass == 'partial_width') {
 }
 if ($containImageEnable) {
     $slideshowClasses[] = 'contain_image';
+}
+if ($captionOnBottom) {
+    $slideshowClasses[] = 'caption_on_bottom';
 }
 
 ?>
