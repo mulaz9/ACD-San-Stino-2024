@@ -19,6 +19,11 @@
         width: 40%;
         max-height: 85vh;
       }
+
+      @include media_Mobile() {
+        aspect-ratio: unset;
+      }
+
       img {
         @include objectfit_image();
         @include media_AllDesktop() {
